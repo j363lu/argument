@@ -1,5 +1,4 @@
 <a href="https://chathn.vercel.app">
-  <img alt="Chat with Hacker News using natural language." src="/app/opengraph-image.png">
   <h1 align="center">ChatHN</h1>
 </a>
 
