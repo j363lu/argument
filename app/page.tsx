@@ -10,6 +10,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import Textarea from "react-textarea-autosize";
 import { toast } from "sonner";
+import Panel from "./components/Panel";
 
 export default function Chat() {
   const formRef = useRef<HTMLFormElement>(null);
@@ -76,19 +77,7 @@ export default function Chat() {
           </div>
         ))
       ) : (
-        <div className="border-gray-200sm:mx-0 mx-5 mt-10 max-w-screen-md rounded-md border sm:w-full">
-          
-          {/* Welcome text */}
-          <div className="flex flex-col space-y-4 p-7 sm:p-10">
-            <h1 className="text-lg font-semibold text-black">
-              Welcome to the argument analysis study!
-            </h1>
-            <p className="text-gray-500">
-              Replace with instructions 
-            </p>
-          </div>
-
-        </div>
+        <Panel />
       )}
 
       {/* input */}
