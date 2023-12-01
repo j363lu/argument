@@ -31,6 +31,7 @@ export default function Chat() {
         error: error.message,
       });
     },
+    api: "/api/openchat",
   });
 
   const disabled = isLoading || input.length === 0;
