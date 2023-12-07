@@ -1,5 +1,5 @@
 import { Radio, RadioGroup, FormControl, FormControlLabel } from '@mui/material';
-import NavigationButton from './NavigationButton';
+import NavigationButton from '../components/NavigationButton';
 
 function Consent() {
   return (
