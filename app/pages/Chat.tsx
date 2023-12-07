@@ -4,13 +4,13 @@ import { useRef } from "react";
 import { useChat } from "ai/react";
 import va from "@vercel/analytics";
 import clsx from "clsx";
-import { LoadingCircle, SendIcon, UserIcon } from "../icons";
+import { LoadingCircle, SendIcon, UserIcon } from "../components/icons";
 import { Bot } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import Textarea from "react-textarea-autosize";
 import { toast } from "sonner";
-import Panel from "./Panel";
+import Panel from "../components/Panel";
 
 export default function Chat() {
   const formRef = useRef<HTMLFormElement>(null);
