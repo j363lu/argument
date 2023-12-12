@@ -15,9 +15,9 @@ function Consent() {
   }
 
   return (
-    <Container>
+    <div>
       <Container maxWidth="md">
-        <h3 className='text-3xl font-semibold'>Information and Consent Letter - MTurk</h3>
+        <h3 className='text-3xl font-semibold title'>Information and Consent Letter - MTurk</h3>
 
         <p><strong>* Please read this consent form and select the applicable choice.</strong></p>
 
@@ -162,7 +162,7 @@ function Consent() {
 
       <NavigationButton disableNext={consent === "0"} />
 
-    </Container>
+    </div>
   );
 }
 
