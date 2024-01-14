@@ -23,3 +23,16 @@ body {
 p {
   margin-bottom: 1rem;
 }
+
+/* Next button in survey */
+#sv-nav-next {
+  margin-left: auto;
+}
+
+#sv-nav-complete {
+  margin-left: auto;
+}
+
+label.sd-rating__item {
+  border-color: transparent !important;
+}
