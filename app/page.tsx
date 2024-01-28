@@ -4,7 +4,7 @@ import { useAppSelector } from "@/lib/hooks";
 import { selectPage } from "@/lib/pageSlice";
 
 import Consent from "./pages/Consent";
-import InitialQuestions from "./pages/InitialQuestions";
+//import InitialQuestions from "./pages/InitialQuestions";
 import Chat from "./pages/Chat";
 
 function Survey() {
@@ -13,7 +13,7 @@ function Survey() {
   // define the pages in the survey
   const pages = [
     <Consent key="consent" />,
-    <InitialQuestions key="initialQuestions" />,
+    //<InitialQuestions key="initialQuestions" />,
     <Chat key="chat" />,
   ]
 
