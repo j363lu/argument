@@ -9,12 +9,12 @@ import demographics from '../json/demographics';
 import { postConversationQuestions } from '../json/initialQuestions';
 
 // saving survey data to local storage so that particiants can continue on incomplete surveys
-const storageItemKey = "argumentFollowup";
-function saveSurveyData (survey) {
-    const data = survey.data;
-    data.pageNo = survey.currentPageNo;
-    window.localStorage.setItem(storageItemKey, JSON.stringify(data));
-}
+// const storageItemKey = "argumentFollowup";
+// function saveSurveyData (survey) {
+//     const data = survey.data;
+//     data.pageNo = survey.currentPageNo;
+//     window.localStorage.setItem(storageItemKey, JSON.stringify(data));
+// }
 
 function Followup() {
 
@@ -41,24 +41,21 @@ function Followup() {
   // survey configurations
   const survey = new Model(surveyJson);
   survey.applyTheme(DefaultLight);
-  survey.onComplete.add(() => {window.localStorage.setItem("argumentSurveyCompleted", "true")})
   survey.completedHtml = completedHtml;
 
   // saving survey data to local storage 
-  survey.onValueChanged.add(saveSurveyData);
-  survey.onCurrentPageChanged.add(saveSurveyData);
+  // survey.onValueChanged.add(saveSurveyData);
+  // survey.onCurrentPageChanged.add(saveSurveyData);
 
   // Restore survey results
-  const prevData = window.localStorage.getItem(storageItemKey) || null;
-  const completedBefore = window.localStorage.getItem("argumentSurveyCompleted") || false;
-  if (prevData) {
-    const data = JSON.parse(prevData);
-    survey.data = data;
-    if (data.pageNo) {
-      survey.currentPageNo = data.pageNo;
-    }
-  }
-  if (completedBefore) survey.doComplete();
+  // const prevData = window.localStorage.getItem(storageItemKey) || null;
+  // if (prevData) {
+  //   const data = JSON.parse(prevData);
+  //   survey.data = data;
+  //   if (data.pageNo) {
+  //     survey.currentPageNo = data.pageNo;
+  //   }
+  // }
 
   return (
     <Survey model={survey} />
