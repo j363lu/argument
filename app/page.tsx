@@ -10,6 +10,7 @@ import { randomChoice } from "@/lib/helperFuncs";
 import Consent from "./pages/Consent";
 import InitialQuestions from "./pages/InitialQuestions";
 import Chat from "./pages/Chat";
+import Followup from "./pages/Followup";
 
 function Survey() {
   const page = useAppSelector(selectPage);
@@ -20,6 +21,7 @@ function Survey() {
     <Consent key="consent" />,
     <InitialQuestions key="initialQuestions" />,
     <Chat key="chat" />,
+    <Followup key="followup" />
   ]
 
   // set the type

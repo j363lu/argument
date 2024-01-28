@@ -42,6 +42,7 @@ $id = !empty($_POST["id"]) ? $_POST["id"] : "null";
 $startTime = !empty($_POST["startTime"]) ? $_POST["startTime"] : "null";
 $endTime = !empty($_POST["endTime"]) ? $_POST["endTime"] : "null";
 $completionCode = !empty($_POST["completionCode"]) ? $_POST["completionCode"] : "null";
+$type = !empty($_POST["type"]) ? $_POST["type"] : "null";
 
 // if Gender=="other", get the Gender-Comment from data instead
 if ($data["Gender"] === "other" && isset($data["Gender-Comment"])) {
@@ -72,7 +73,7 @@ if ($conn->query($sql) === TRUE) {
 }
 
 /*********************** Metadata ***********************/
-$sql = "INSERT INTO Metadata VALUES ({$id},'{$startTime}','{$endTime}','{$completionCode}', {$bonus})";
+$sql = "INSERT INTO Metadata VALUES ({$id}, '{$type}','{$startTime}','{$endTime}','{$completionCode}')";
 
 // send sql query
 if ($conn->query($sql) === TRUE) {
