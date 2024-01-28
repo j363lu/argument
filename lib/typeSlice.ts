@@ -5,12 +5,12 @@ export const types = ["emotional", "narrative", "logicConsequential", "logicMora
 
 // Define a type for the slice state
 export interface TypeState {
-  value: string
+  value: "emotional" | "narrative" | "logicConsequential" | "logicMoral" | "antiConservative"
 }
 
 // Define the initial state using that type
 const initialState: TypeState = {
-  value: ""
+  value: "emotional"
 }
 
 export const typeSlice = createSlice({

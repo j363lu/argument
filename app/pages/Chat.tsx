@@ -12,9 +12,15 @@ import Textarea from "react-textarea-autosize";
 import { toast } from "sonner";
 import Panel from "../components/Panel";
 
+import { useAppSelector } from "@/lib/hooks";
+import { selectType } from "@/lib/typeSlice";
+import { systemPrompts } from "@/lib/helperFuncs";
+
 export default function Chat() {
   const formRef = useRef<HTMLFormElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
+
+  const type = useAppSelector(selectType);
 
   const { messages, input, setInput, handleSubmit, isLoading } = useChat({
     onResponse: (response) => {
@@ -33,14 +39,18 @@ export default function Chat() {
       });
     },
     api: "/api/openai",
+    initialMessages: [{id: "systemPrompt", role: "system", content: systemPrompts[type]}]
   });
 
   const disabled = isLoading || input.length === 0;
 
   return (
     <main className="flex flex-col items-center justify-between pb-40">
-      {messages.length > 0 ? (
-        messages.map((message, i) => (
+      {messages.length > 1 ? (
+        messages.map((message, i) => {
+          if (message.role === "system") return
+
+          return (
           <div
             key={i}
             className={clsx(
@@ -74,8 +84,8 @@ export default function Chat() {
                 {message.content}
               </ReactMarkdown>
             </div>
-          </div>
-        ))
+          </div>)
+        })
       ) : (
         <Panel />
       )}
