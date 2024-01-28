@@ -1,12 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit';
 import pageReducer from './pageSlice';
 import typeReducer from './typeSlice';
+import timeReducer from './timeSlice';
+import idReducer from './idSlice';
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
       page: pageReducer,
       type: typeReducer,
+      time: timeReducer,
+      id: idReducer,
     }
   })
 }
