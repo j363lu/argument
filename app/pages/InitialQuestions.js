@@ -7,8 +7,13 @@ import { DefaultLight } from 'survey-core/themes/default-light';
 
 import { initialQuestions } from '../json/initialQuestions';
 
+import { useAppSelector } from '@/lib/hooks';
 import { useAppDispatch } from '@/lib/hooks';
 import { incrementPage } from '@/lib/pageSlice';
+import { selectId } from '@/lib/idSlice';
+
+// server location
+const initialQuestionsServer = "/~dicelab/argument/php/saveInitialQuestions.php"; 
 
 // saving survey data to local storage so that particiants can continue on incomplete surveys
 // const storageItemKey = "initialQuestions";
@@ -19,10 +24,34 @@ import { incrementPage } from '@/lib/pageSlice';
 // }
 
 function InitialQuestions() {
+  const id = useAppSelector(selectId);
   const dispatch = useAppDispatch();
+
+  // post data to a specified url
+  const postFormData = (url, formdata) => {
+    fetch(url, {
+      method: "POST",
+      body: formdata
+    })
+    .then((response) => {
+      return response.text();
+    })
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(error);
+    });  
+  }
 
   const complete = (sender) => {
     console.log(sender.data);
+
+    let fd = new FormData();
+    fd.append("data", JSON.stringify(sender.data));   // FormData to send to server
+    fd.append("id", id);                              // add ID to the data to send  
+
+    postFormData(initialQuestionsServer, fd);
 
     dispatch(incrementPage());
   }

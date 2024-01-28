@@ -1,2 +1,1 @@
-scp -r .next dicelab@artsresearch.uwaterloo.ca:~/argument/
-scp package.json dicelab@artsresearch.uwaterloo.ca:~/argument/
+scp -r app/php/* dicelab@artsresearch.uwaterloo.ca:~/public_html/argument/php/
