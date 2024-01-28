@@ -13,7 +13,7 @@ import { incrementPage } from '@/lib/pageSlice';
 import { selectId } from '@/lib/idSlice';
 
 // server location
-const initialQuestionsServer = "/~dicelab/argument/php/saveInitialQuestions.php"; 
+const initialQuestionsServer = "https://artsresearch.uwaterloo.ca/~dicelab/argument-backend/php/saveInitialQuestions.php"; 
 
 // saving survey data to local storage so that particiants can continue on incomplete surveys
 // const storageItemKey = "initialQuestions";

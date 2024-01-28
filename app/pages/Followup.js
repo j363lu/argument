@@ -15,7 +15,7 @@ import { selectType } from '@/lib/typeSlice';
 import { selectStartTime, torontoTime } from '@/lib/timeSlice';
 
 // server location
-const followupServer = "/~dicelab/argument/php/saveFollowup.php"; 
+const followupServer = "https://artsresearch.uwaterloo.ca/~dicelab/argument-backend/php/saveFollowup.php"; 
 
 // saving survey data to local storage so that particiants can continue on incomplete surveys
 // const storageItemKey = "argumentFollowup";

@@ -16,6 +16,10 @@ define("USERNAME", "dicelab");
 define("PASSWORD", "56YI1gYf2hgM2lBA");
 define("DATABASE", "argument");
 
+header('Access-Control-Allow-Origin: https://argument.vercel.app');
+header('Access-Control-Allow-Methods: POST');
+header('Access-Control-Allow-Headers: Content-Type, Authorization');
+
 // Connect to mysql
 $conn = new mysqli(SERVER, USERNAME, PASSWORD, DATABASE);
 

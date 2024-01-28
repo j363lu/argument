@@ -1,1 +1,1 @@
-scp -r app/php/* dicelab@artsresearch.uwaterloo.ca:~/public_html/argument/php/
+scp -r app/php/* dicelab@artsresearch.uwaterloo.ca:~/public_html/argument-backend/php/
