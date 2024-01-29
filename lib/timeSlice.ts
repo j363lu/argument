@@ -27,7 +27,7 @@ export interface TimeState {
 
 // Define the initial state using that type
 const initialState: TimeState = {
-  startTime: Date.now().toString()
+  startTime: torontoTime(Date.now().toString())
 }
 
 export const timeSlice = createSlice({

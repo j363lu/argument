@@ -56,7 +56,7 @@ function Followup() {
     fd.append("id", id);                              // add ID to the data to send  
     fd.append("type", type);                          // add type to the data
     fd.append("startTime", startTime);                // start time of the survey
-    fd.append("endTime", torontoTime(Date.now()))         // end time of the survey  
+    fd.append("endTime", torontoTime(Date.now().toString()))         // end time of the survey  
 
     postFormData(followupServer, fd);
 
