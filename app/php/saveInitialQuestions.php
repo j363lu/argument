@@ -53,7 +53,7 @@ $sql = $sql . ")";
 
 // send query
 if ($conn->query($sql) === TRUE) {
-  echo "New task record created successfully \n";
+  echo "New initialQuestions record created successfully \n";
 } else {
   echo "Error: " . $sql . "<br>" . $conn->error;
 }
