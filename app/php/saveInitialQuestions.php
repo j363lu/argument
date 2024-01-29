@@ -35,8 +35,8 @@ $data = json_decode($_POST["data"], true);
 $id = !empty($_POST["id"]) ? $_POST["id"] : "null";
 
 // construct sql query
-$sql = "INSERT INTO TaskOrder VALUES ({$id}";
-foreach ($columns as $column) {
+$sql = "INSERT INTO InitialQuestions VALUES ({$id}";
+foreach ($initialQuestions as $column) {
   $value = $data[$column];
   if (isset($value) && gettype($value) === "integer") {
     $sql = "{$sql},{$value}";

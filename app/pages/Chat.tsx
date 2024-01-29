@@ -16,6 +16,8 @@ import { useAppSelector } from "@/lib/hooks";
 import { selectType } from "@/lib/typeSlice";
 import { systemPrompts } from "@/lib/helperFuncs";
 
+import NavigationButton from "../components/NavigationButton";
+
 export default function Chat() {
   const formRef = useRef<HTMLFormElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
@@ -92,6 +94,7 @@ export default function Chat() {
 
       {/* input */}
       <div className="fixed bottom-0 flex w-full flex-col items-center space-y-3 bg-gradient-to-b from-transparent via-gray-100 to-gray-100 p-5 pb-3 sm:px-0">
+        {messages.length < 9 ?
         <form
           ref={formRef}
           onSubmit={handleSubmit}
@@ -135,7 +138,7 @@ export default function Chat() {
               />
             )}
           </button>
-        </form>
+        </form> : <NavigationButton />}
       </div>
 
     </main>
