@@ -61,6 +61,7 @@ function Followup() {
     fd.append("completionCode", completionCode);
     fd.append("endTime", torontoTime(Date.now().toString()));         // end time of the survey  
     fd.append("messages", JSON.stringify(messages));
+    console.log(messages);
 
     postFormData(followupServer, fd);
 
