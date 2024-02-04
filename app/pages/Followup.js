@@ -67,7 +67,8 @@ function Followup() {
 
     // send to controlServer
     let fd2 = new FormData();
-    fd2.append("data", JSON.stringify({"Control": ""}))
+    fd2.append("data", JSON.stringify({"Control": ""}));
+    fd2.append("id", id);
     postFormData(controlServer, fd2);
 
   }  

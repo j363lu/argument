@@ -10,7 +10,8 @@ const control = {
       title: "Please write a short paragraph on your stance towards legalizing kidney markets and why you have that stance.",      
       // description: "What is your occupation?",
       type: "comment",
-      maxLength: 1000         
+      isRequired: true,
+      maxLength: 1000,         
     }]
   }],
 };
