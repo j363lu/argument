@@ -60,7 +60,7 @@ function Followup() {
     fd.append("startTime", startTime);                // start time of the survey
     fd.append("completionCode", completionCode);
     fd.append("endTime", torontoTime(Date.now().toString()));         // end time of the survey  
-    fd.append("messages", JSON.stringify(messages));
+    fd.append("messages", JSON.stringify(messages.map((m => m.content))));
     console.log(messages);
 
     postFormData(followupServer, fd);
