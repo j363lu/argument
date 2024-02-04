@@ -12,9 +12,10 @@ import Textarea from "react-textarea-autosize";
 import { toast } from "sonner";
 import Panel from "../components/Panel";
 
-import { useAppSelector } from "@/lib/hooks";
+import { useAppSelector, useAppDispatch } from "@/lib/hooks";
 import { selectType } from "@/lib/typeSlice";
 import { systemPrompts } from "@/lib/helperFuncs";
+import { setMessages } from "@/lib/messagesSlice";
 
 import NavigationButton from "../components/NavigationButton";
 
@@ -23,6 +24,7 @@ export default function Chat() {
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
   const type = useAppSelector(selectType);
+  const dispatch = useAppDispatch();
 
   const { messages, input, setInput, handleSubmit, isLoading } = useChat({
     onResponse: (response) => {
@@ -138,7 +140,7 @@ export default function Chat() {
               />
             )}
           </button>
-        </form> : <NavigationButton />}
+        </form> : <NavigationButton action={() => {dispatch(setMessages(messages))}} />}
       </div>
 
     </main>

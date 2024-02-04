@@ -3,6 +3,7 @@ import pageReducer from './pageSlice';
 import typeReducer from './typeSlice';
 import timeReducer from './timeSlice';
 import idReducer from './idSlice';
+import messagesReducer from './messagesSlice';
 
 export const makeStore = () => {
   return configureStore({
@@ -11,6 +12,7 @@ export const makeStore = () => {
       type: typeReducer,
       time: timeReducer,
       id: idReducer,
+      messages: messagesReducer,
     }
   })
 }

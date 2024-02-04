@@ -10,9 +10,9 @@ const questions =[
 // common attributes for all the rating questioins
 const questionTemplate = {
   type: "rating",
-  rateCount: 5,
+  rateCount: 9,
   rateMin: 1,
-  rateMax: 5,
+  rateMax: 9,
   isRequired: true,
 }
 

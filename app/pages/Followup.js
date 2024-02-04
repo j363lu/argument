@@ -13,6 +13,7 @@ import { useAppSelector } from '@/lib/hooks';
 import { selectCompletionCode, selectId } from '@/lib/idSlice';
 import { selectType } from '@/lib/typeSlice';
 import { selectStartTime, torontoTime } from '@/lib/timeSlice';
+import { selectMessages } from '@/lib/messagesSlice';
 
 // server location
 const followupServer = "https://artsresearch.uwaterloo.ca/~dicelab/argument-backend/php/saveFollowup.php"; 
@@ -30,6 +31,7 @@ function Followup() {
   const completionCode = useAppSelector(selectCompletionCode);
   const type = useAppSelector(selectType);
   const startTime = useAppSelector(selectStartTime);
+  const messages = useAppSelector(selectMessages);
 
   // post data to a specified url
   const postFormData = (url, formdata) => {
@@ -57,7 +59,8 @@ function Followup() {
     fd.append("type", type);                          // add type to the data
     fd.append("startTime", startTime);                // start time of the survey
     fd.append("completionCode", completionCode);
-    fd.append("endTime", torontoTime(Date.now().toString()))         // end time of the survey  
+    fd.append("endTime", torontoTime(Date.now().toString()));         // end time of the survey  
+    fd.append("messages", JSON.stringify(messages));
 
     postFormData(followupServer, fd);
 

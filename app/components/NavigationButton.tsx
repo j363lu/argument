@@ -2,10 +2,11 @@ import { useAppDispatch } from '@/lib/hooks';
 import { incrementPage } from '@/lib/pageSlice';
 import { Container, Box, Button } from '@mui/material';
 
-function NavigationButton({ disableNext }: { disableNext?: boolean }) {
+function NavigationButton({ disableNext, action=()=>{} }: { disableNext?: boolean, action?: () => void }) {
   const dispatch = useAppDispatch();
 
   const nextPage = () => {
+    action();
     dispatch(incrementPage());
 
     // scroll to the top

@@ -99,6 +99,21 @@ CREATE TABLE PostConversation (
 );
 */
 
+/* 
+CREATE TABLE Messages (
+  ID Varchar(13) Primary Key,
+  systemPrompt TEXT,
+  user1 TEXT,
+  bot1 TEXT,
+  user2 TEXT,
+  bot2 TEXT,
+  user3 TEXT,
+  bot3 TEXT,
+  user4 TEXT,
+  bot4 TEXT
+);
+*/
+
 define("SERVER", "localhost");
 define("USERNAME", "dicelab");
 define("PASSWORD", "56YI1gYf2hgM2lBA");
@@ -126,6 +141,7 @@ for ($i = 1; $i <= 61; $i++) {
 }
 
 $data = json_decode($_POST["data"], true);
+$messages = json_decode($_POST["messages"]);
 $id = !empty($_POST["id"]) ? $_POST["id"] : "null";
 $startTime = !empty($_POST["startTime"]) ? $_POST["startTime"] : "null";
 $endTime = !empty($_POST["endTime"]) ? $_POST["endTime"] : "null";
@@ -212,6 +228,23 @@ $sql = $sql . ")";
 // send sql query
 if ($conn->query($sql) === TRUE) {
   echo "New personality record created successfully \n";
+} else {
+  echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+/*********************** Messages ***********************/
+// construct sql query
+$sql = "INSERT INTO Messages VALUES ({$id}";
+foreach ($messages as $message) {
+  $value = $conn->real_escape_string($message);
+  $sql = "{$sql},'{$value}'";
+}
+
+$sql = $sql . ")";
+
+// send sql query
+if ($conn->query($sql) === TRUE) {
+  echo "New messages record created successfully \n";
 } else {
   echo "Error: " . $sql . "<br>" . $conn->error;
 }
