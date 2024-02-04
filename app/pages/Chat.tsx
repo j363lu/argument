@@ -140,7 +140,7 @@ export default function Chat() {
               />
             )}
           </button>
-        </form> : <NavigationButton action={() => {dispatch(setMessages(messages))}} />}
+        </form> : <NavigationButton action={() => {dispatch(setMessages(messages.map(m => m.content)))}} />}
       </div>
 
     </main>

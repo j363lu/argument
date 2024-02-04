@@ -5,34 +5,26 @@ import { Survey } from 'survey-react-ui';
 import 'survey-core/defaultV2.min.css';
 import { DefaultLight } from 'survey-core/themes/default-light';
 
-import demographics from '../json/demographics';
-import { personality } from '../json/personality';
-import { postConversationQuestions } from '../json/initialQuestions';
+import control from '../json/control';
 
-import { useAppSelector } from '@/lib/hooks';
-import { selectCompletionCode, selectId } from '@/lib/idSlice';
-import { selectType } from '@/lib/typeSlice';
-import { selectStartTime, torontoTime } from '@/lib/timeSlice';
-import { selectMessages } from '@/lib/messagesSlice';
+import { useAppSelector, useAppDispatch } from '@/lib/hooks';
+import { incrementPage } from '@/lib/pageSlice';
+import { selectId } from '@/lib/idSlice';
 
 // server location
-const followupServer = "https://artsresearch.uwaterloo.ca/~dicelab/argument-backend/php/saveFollowup.php"; 
 const controlServer = "https://artsresearch.uwaterloo.ca/~dicelab/argument-backend/php/saveControl.php"; 
 
 // saving survey data to local storage so that particiants can continue on incomplete surveys
-// const storageItemKey = "argumentFollowup";
+// const storageItemKey = "initialQuestions";
 // function saveSurveyData (survey) {
 //     const data = survey.data;
 //     data.pageNo = survey.currentPageNo;
 //     window.localStorage.setItem(storageItemKey, JSON.stringify(data));
 // }
 
-function Followup() {
+function Control() {
   const id = useAppSelector(selectId);
-  const completionCode = useAppSelector(selectCompletionCode);
-  const type = useAppSelector(selectType);
-  const startTime = useAppSelector(selectStartTime);
-  const messages = useAppSelector(selectMessages);
+  const dispatch = useAppDispatch();
 
   // post data to a specified url
   const postFormData = (url, formdata) => {
@@ -57,46 +49,23 @@ function Followup() {
     let fd = new FormData();
     fd.append("data", JSON.stringify(sender.data));   // FormData to send to server
     fd.append("id", id);                              // add ID to the data to send  
-    fd.append("type", type);                          // add type to the data
-    fd.append("startTime", startTime);                // start time of the survey
-    fd.append("completionCode", completionCode);
-    fd.append("endTime", torontoTime(Date.now().toString()));         // end time of the survey  
-    fd.append("messages", JSON.stringify(messages));
 
-    postFormData(followupServer, fd);
+    postFormData(controlServer, fd);
 
-    // send to controlServer
-    let fd2 = new FormData();
-    fd2.append("data", JSON.stringify({"Control": ""}))
-    postFormData(controlServer, fd2);
-
-  }  
+    dispatch(incrementPage());
+  }
 
   // The structure of the demographic questions
   const surveyJson = {
-    // title: "Follow-up Questions",
     pages: [
-      ...postConversationQuestions.pages,
-      ...personality.pages,
-      ...demographics.pages,
+      ...control.pages,
     ],
     showQuestionNumbers: "onpage",
-    showProgressBar: "bottom",
   };
-
-  // The page after the survey is submitted
-  const completedHtml = `
-    <h3>Thank you for completing the survey!</h3>
-    <br>
-    <h3>Here is your completion code: </h3>
-    <br>
-    <h4>${completionCode}</h4>
-  `;
 
   // survey configurations
   const survey = new Model(surveyJson);
   survey.applyTheme(DefaultLight);
-  survey.completedHtml = completedHtml;
   survey.onComplete.add(complete);
 
   // saving survey data to local storage 
@@ -118,4 +87,4 @@ function Followup() {
   );
 }
 
-export default Followup;
+export default Control;

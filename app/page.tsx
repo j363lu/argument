@@ -1,7 +1,7 @@
 "use client"
 
 import { useAppSelector, useAppDispatch } from "@/lib/hooks";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { selectPage } from "@/lib/pageSlice";
 import { setType, types } from "@/lib/typeSlice";
 
@@ -10,6 +10,7 @@ import { randomChoice } from "@/lib/helperFuncs";
 import Consent from "./pages/Consent";
 import InitialQuestions from "./pages/InitialQuestions";
 import Chat from "./pages/Chat";
+import Control from "./pages/Control";
 import Followup from "./pages/Followup";
 
 function Survey() {
@@ -17,12 +18,12 @@ function Survey() {
   const dispatch = useAppDispatch();
 
   // define the pages in the survey
-  const pages = [
+  const [pages, setPages] = useState([
     <Consent key="consent" />,
     <InitialQuestions key="initialQuestions" />,
     <Chat key="chat" />,
     <Followup key="followup" />
-  ]
+  ]);
 
   // set the type
   useEffect(() => {
@@ -37,6 +38,14 @@ function Survey() {
       t = randomType;      
     }
 
+    if (t == "control") {
+      setPages([
+        <Consent key="consent" />,
+        <InitialQuestions key="initialQuestions" />,
+        <Control key="control" />,
+        <Followup key="followup" />        
+      ]);
+    }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

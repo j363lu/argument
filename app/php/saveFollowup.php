@@ -242,6 +242,10 @@ foreach ($messages as $message) {
 
 $sql = $sql . ")";
 
+if (empty($messages)) {
+  $sql = "INSERT INTO Messages VALUES ({$id},null,null,null,null,null,null,null,null,null)";
+}
+
 // send sql query
 if ($conn->query($sql) === TRUE) {
   echo "New messages record created successfully \n";
