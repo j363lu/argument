@@ -74,7 +74,6 @@ const questions = [
   "I see myself as someone who does a thorough job",
   "I see myself as someone who gets nervous easily",
   "I see myself as someone who has an active imagination",
-  "Select the number two in the next answer. This is to ensure that you are paying attention."
 ];
 
 // common attributes for all the rating questioins
@@ -95,11 +94,16 @@ const elements = questions.map((q, i) => {
     ...questionTemplate
   };
 });
+elements.push({
+  name: "attention",
+  title: "Select the number two in the next answer, this is to ensure that you are paying attention.",
+  ...questionTemplate
+})
 
 export const personality = {
   pages: [{
     title: "Personality questions",
-    description: "How well do the following statements describe your personality",
+    description: "How well do the following statements describe your personality?",
     elements: elements
   }],
 };
