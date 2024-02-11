@@ -82,7 +82,7 @@ function Followup() {
       ...personality.pages,
       ...decision.pages,
       ...postConversationQuestions.pages,
-      ...manipulation.pages,
+      ...(type != "control" ? manipulation.pages : []),
       ...demographics.pages,
     ],
     showQuestionNumbers: "onpage",

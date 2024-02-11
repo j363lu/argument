@@ -21,7 +21,7 @@ const questionTemplate = {
 export const initialQuestions = {
   pages: [{
     title: "Rating questions",
-    description: "Please first complete the following questions",
+    // description: "Please first complete the following questions",
     elements: [{
       name: "initial1",
       title: questions[0],
@@ -35,7 +35,7 @@ export const initialQuestions = {
 export const postConversationQuestions = {
   pages: [{
     title: "Rating questions",
-    description: "Please complete the following questions",
+    // description: "Please complete the following questions",
     elements: [{
       name: "postConversation1",
       title: questions[0],

@@ -14,7 +14,7 @@ const questionTemplate = {
 // The structure of the decision questions
 const manipulation = {
   pages: [{
-    // title: "",
+    title: "AI questions",
     elements: [{
       name: "manipulation1",
       title: "Did the AI give responses that argued about the good of society?",      

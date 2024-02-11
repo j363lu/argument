@@ -38,7 +38,7 @@ CREATE TABLE Decision (
 */
 
 /* 
-CREATE TABLE Decision (
+CREATE TABLE Personality (
   ID Varchar(13) Primary Key,
   personality1 TINYINT,
   personality2 TINYINT,
@@ -49,6 +49,7 @@ CREATE TABLE Decision (
   personality7 TINYINT,
   personality8 TINYINT,
   personality9 TINYINT,
+  personality10 TINYINT,
   attention TINYINT
 );
 */
@@ -68,11 +69,7 @@ CREATE TABLE Manipulation (
 /* 
 CREATE TABLE PostConversation (
   ID Varchar(13) Primary Key,
-  postConversation1 TINYINT,
-  postConversation2 TINYINT,
-  postConversation3 TINYINT,
-  postConversation4 TINYINT,
-  postConversation5 TINYINT
+  postConversation1 TINYINT
 );
 */
 
@@ -111,7 +108,7 @@ echo "Database connected successfully \n";
 
 // get data
 $demographics = array("Age", "Gender", "Education", "Major", "Income", "Occupation");
-$postConversation = array("postConversation1", "postConversation2", "postConversation3", "postConversation4", "postConversation5");
+$postConversation = array("postConversation1");
 $personality = [];
 for ($i = 1; $i <= 10; $i++) {
   $personality[] = "personality" . $i;
