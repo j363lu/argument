@@ -68,6 +68,16 @@ function Control() {
   survey.applyTheme(DefaultLight);
   survey.onComplete.add(complete);
 
+  // length between 50 words to 200 words
+  survey.onValidateQuestion.add((survey, options) => {
+    if (options.name === "Control") {
+      const minChar = 300;
+      if (options.value.length < minChar) {
+        options.error = `Your response should be longer than ${minChar} characters`
+      }
+    }
+  });
+
   // saving survey data to local storage 
   // survey.onValueChanged.add(saveSurveyData);
   // survey.onCurrentPageChanged.add(saveSurveyData);

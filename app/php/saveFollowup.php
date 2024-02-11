@@ -22,7 +22,23 @@ CREATE TABLE Demographic (
 */
 
 /* 
-CREATE TABLE Personality (
+CREATE TABLE Decision (
+  ID Varchar(13) Primary Key,
+  rational1 TINYINT,
+  rational2 TINYINT,
+  rational3 TINYINT,
+  rational4 TINYINT,
+  rational5 TINYINT,
+  intuitive1 TINYINT,
+  intuitive2 TINYINT,
+  intuitive3 TINYINT,
+  intuitive4 TINYINT,
+  intuitive5 TINYINT
+);
+*/
+
+/* 
+CREATE TABLE Decision (
   ID Varchar(13) Primary Key,
   personality1 TINYINT,
   personality2 TINYINT,
@@ -33,58 +49,19 @@ CREATE TABLE Personality (
   personality7 TINYINT,
   personality8 TINYINT,
   personality9 TINYINT,
-  personality10 TINYINT,
-  personality11 TINYINT,
-  personality12 TINYINT,
-  personality13 TINYINT,
-  personality14 TINYINT,
-  personality15 TINYINT,
-  personality16 TINYINT,      
-  personality17 TINYINT,
-  personality18 TINYINT,
-  personality19 TINYINT,
-  personality20 TINYINT,
-  personality21 TINYINT,
-  personality22 TINYINT,
-  personality23 TINYINT,
-  personality24 TINYINT,
-  personality25 TINYINT,
-  personality26 TINYINT,
-  personality27 TINYINT,
-  personality28 TINYINT,
-  personality29 TINYINT,
-  personality30 TINYINT,
-  personality31 TINYINT,
-  personality32 TINYINT,  
-  personality33 TINYINT,
-  personality34 TINYINT,
-  personality35 TINYINT,
-  personality36 TINYINT,
-  personality37 TINYINT,
-  personality38 TINYINT,
-  personality39 TINYINT,
-  personality40 TINYINT,
-  personality41 TINYINT,
-  personality42 TINYINT,
-  personality43 TINYINT,
-  personality44 TINYINT,
-  personality45 TINYINT,
-  personality46 TINYINT,
-  personality47 TINYINT,
-  personality48 TINYINT,      
-  personality49 TINYINT,
-  personality50 TINYINT,
-  personality51 TINYINT,
-  personality52 TINYINT,
-  personality53 TINYINT,
-  personality54 TINYINT,
-  personality55 TINYINT,
-  personality56 TINYINT,
-  personality57 TINYINT,
-  personality58 TINYINT,
-  personality59 TINYINT,
-  personality60 TINYINT,
-  personality61 TINYINT   
+  attention TINYINT
+);
+*/
+
+/* 
+CREATE TABLE Manipulation (
+  ID Varchar(13) Primary Key,
+  manipulation1 TINYINT,
+  manipulation2 TINYINT,
+  manipulation3 TINYINT,
+  manipulation4 TINYINT,
+  manipulation5 TINYINT,
+  manipulation6 TINYINT
 );
 */
 
@@ -136,9 +113,12 @@ echo "Database connected successfully \n";
 $demographics = array("Age", "Gender", "Education", "Major", "Income", "Occupation");
 $postConversation = array("postConversation1", "postConversation2", "postConversation3", "postConversation4", "postConversation5");
 $personality = [];
-for ($i = 1; $i <= 61; $i++) {
+for ($i = 1; $i <= 10; $i++) {
   $personality[] = "personality" . $i;
 }
+$personality[] = "attention";
+$decision = array("rational1", "rational2", "rational3", "rational4", "rational5", "intuitive1", "intuitive2", "intuitive3", "intuitive4", "intuitive5");
+$manipulation = array("manipulation1", "manipulation2", "manipulation3", "manipulation4", "manipulation5", "manipulation6");
 
 $data = json_decode($_POST["data"], true);
 $messages = json_decode($_POST["messages"]);
@@ -228,6 +208,52 @@ $sql = $sql . ")";
 // send sql query
 if ($conn->query($sql) === TRUE) {
   echo "New personality record created successfully \n";
+} else {
+  echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+/*********************** Decision ***********************/
+// construct sql query
+$sql = "INSERT INTO Decision VALUES ({$id}";
+foreach ($decision as $column) {
+  $value = $data[$column];
+  if (isset($value) && gettype($value) === "integer") {
+    $sql = "{$sql},{$value}";
+  } elseif (!empty($value) && gettype($value) === "string") {
+    $value = $conn->real_escape_string($value);
+    $sql = "{$sql},'{$value}'";
+  } else {
+    $sql = "{$sql},null";
+  }
+}
+$sql = $sql . ")";
+
+// send sql query
+if ($conn->query($sql) === TRUE) {
+  echo "New decision record created successfully \n";
+} else {
+  echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+/*********************** Manipulation ***********************/
+// construct sql query
+$sql = "INSERT INTO Manipulation VALUES ({$id}";
+foreach ($manipulation as $column) {
+  $value = $data[$column];
+  if (isset($value) && gettype($value) === "integer") {
+    $sql = "{$sql},{$value}";
+  } elseif (!empty($value) && gettype($value) === "string") {
+    $value = $conn->real_escape_string($value);
+    $sql = "{$sql},'{$value}'";
+  } else {
+    $sql = "{$sql},null";
+  }
+}
+$sql = $sql . ")";
+
+// send sql query
+if ($conn->query($sql) === TRUE) {
+  echo "New manipulation record created successfully \n";
 } else {
   echo "Error: " . $sql . "<br>" . $conn->error;
 }

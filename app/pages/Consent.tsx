@@ -21,7 +21,7 @@ function Consent() {
 
         <p><strong>* Please read this consent form and select the applicable choice.</strong></p>
 
-        <p><strong>Title of Project:</strong> Understanding Decision-Making</p>
+        <p><strong>Title of Project:</strong> Argumentative AI</p>
 
         <p><strong>Faculty Supervisor:</strong></p>
         <p>Dr. Samuel Johnson</p>
@@ -29,13 +29,6 @@ function Consent() {
           <li>University of Waterloo, Waterloo, Ontario, Canada (Psychology)</li>
           <li><a href="mailto: samuel.johnson@uwaterloo.ca">samuel.johnson@uwaterloo.ca</a></li>
           <li>519-888-4567 x41339</li>
-        </ul>
-            
-        <p><strong>Student Investigator:</strong></p>
-        <p>Kristina Wu</p>
-        <ul>
-          <li>University of Waterloo, Waterloo, Ontario, Canada (Psychology)</li>
-          <li><a href="mailto: kristina.wu@uwaterloo.ca">kristina.wu@uwaterloo.ca</a></li>
         </ul>
       </Container>
 
@@ -47,9 +40,7 @@ function Consent() {
         </p>
 
         <p>
-          I (Kristina Wu) am a MA student in the Department of Psychology at the University of Waterloo,
-          Canada, conducting research in collaboration with Dr. Samuel Johnson. You are invited to
-          participate in a study investigating how people prioritize tasks.
+          You are invited to participate in a study investigating prosocial behaviours.
         </p>
 
         <br />
@@ -60,10 +51,18 @@ function Consent() {
         </strong>
 
         <p>
-          Participation in this study will consist of a task management game that will take approximately
-          12 minutes of your time. You will be given several task lists and asked to make a series of task
-          selection choices. You will be asked demographic questions for the purpose of record-keeping
-          and providing information about our sample.
+          This study is seeking to investigate what persuasive techniques work best long term. 
+          This study is being conducted by a team of researchers, primarily working with Sam Johnson.
+        </p>
+
+        <p>
+          This study takes place online. 
+          You will first be asked to state your opinion on kidney markets and then engage with an AI.
+          You will then be asked to complete a questionnaire.
+        </p>
+
+        <p>
+          We value your honest participation. The entire study will last approximately 8 minutes.
         </p>
 
         <br />
@@ -74,11 +73,13 @@ function Consent() {
         </strong>
 
         <p>
-          Your participation in this study is voluntary. Should you choose to participate, $2.00 USD will be
-          deposited toward your MTurk account plus a bonus payment of up to $1.00 USD. You may
-          decline to answer any demographic questions that you do not wish to answer by leaving them blank, and you
-          can withdraw your participation at any time by not submitting responses without penalty or
-          loss of remuneration. To receive remuneration, please proceed to the end of the questionnaire.
+          Your participation in this study is voluntary. 
+          Our current estimate for the length of this study is 8 minutes, 
+          once coded this will be tested and the payment amount will be adjusted accordingly 
+          at the rate of $9USD per hour. You may decline to answer any question that 
+          you do not wish to answer by leaving them blank, and you can withdraw your participation
+           at any time by not submitting responses without penalty or loss of credit. 
+           To receive credit, please proceed to the end of the questionnaire.
         </p>
 
         <strong><p>Personal Benefits of the Study</p></strong>
@@ -96,39 +97,42 @@ function Consent() {
         <strong><p>Confidentiality</p></strong>
 
         <p>
-          No Internet transmission is ever fully secure or error free. Please Note:
-          We do not collect or use internet protocol (IP) addresses or other information which could link
-          your participation to your computer or electronic device.
+          You will be completing the study by an online survey operated by Qualtrics. 
+          Qualtrics has implemented technical, administrative, and physical safeguards to protect 
+          the information provided via the Services from loss, misuse, and unauthorized access, disclosure,
+          alteration, or destruction. However, no Internet transmission is ever fully secure or error free. 
+          Please Note: We do not collect or use internet protocol (IP) addresses or other information 
+          which could link your participation to your computer or electronic device. 
         </p>
 
         <p>
-          The data collected from this study will be anonymously collected, maintained
-          without identifying information and stored on University of Waterloo servers. The data will be
-          electronically archived after completion of the study and maintained for at least 7 years and
-          then erased. Datarelated to your participation may be submitted to an open access repository
-          or journal (i.e., the data may be publicly available). Data will be completely anonymous from
-          the beginning of the study and will be presented in aggregate form in publications. This process
-          is integral to the research process as it allows other researchers to verify results and avoid
-          duplicating research. Other individuals may access these data by accessing the open access
-          repository. Although theanonymizeddataset may be shared publicly, your identity will always
-          remain confidential. 
+          The data collected from this study will be anonymously collected via Qualtrics, 
+          maintained without any identifying information, and stored on secure University of Waterloo servers.
+          The data will be electronically archived after completion of the study and maintained 
+          for at least 7 years and then erased. Data related to your participation may be submitted 
+          to an open access repository or journal (i.e., the data may be publicly available). 
+          Data will be completely anonymous from the beginning of the study and will be presented in aggregate 
+          form in publications. This process is integral to the research process as it allows other researchers
+          to verify results and avoid duplicating research. Other individuals may access these data 
+          by accessing the open access repository. Although the anonymized dataset may be shared publicly, 
+          your identity will always remain confidential.
         </p>
 
         <strong><p>Research Ethics Clearance</p></strong>
 
         <p>
-          This study has been reviewed and received ethics clearance through a University of Waterloo
-          Research Ethics Board (REB #45178). If you have questions for the Board, contact the Office of
-          Research Ethics, toll-free at 1-833-643-2379 (Canada and USA), 1-519-888-4440,
-          or reb@uwaterloo.ca.
+          This study has been reviewed and received ethics clearance through a University of Waterloo 
+          Research Ethics Board (ORE #46139). If you have questions for the Board, 
+          contact the Office of Research Ethics, toll-free at 1-833-643-2379 (Canada and USA), 
+          1- 519-888-4440, or reb@uwaterloo.ca.
         </p>
 
         <strong><p>Questions?</p></strong>
 
         <p>
-          If you have any questions related to this study or would like additional information to help
-          assist you in reaching a decision about participation, please contact Kristina Wu at
-          kristina.wu@uwaterloo.ca.
+          If you have any questions related to this study or would like additional information 
+          to help assist you in reaching a decision about participation, please contact the DICE lab at 
+          dicelab@uwaterloo.ca 
         </p>
       </Container>
 

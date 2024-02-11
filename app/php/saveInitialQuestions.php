@@ -3,11 +3,7 @@
 /* 
 CREATE TABLE InitialQuestions (
   ID Varchar(13) Primary Key,
-  initial1 TINYINT,
-  initial2 TINYINT,
-  initial3 TINYINT,
-  initial4 TINYINT,
-  initial5 TINYINT
+  initial1 TINYINT
 );
 */
 
@@ -30,7 +26,7 @@ if ($conn->connect_error) {
 echo "Database connected successfully \n";
 
 // get data
-$initialQuestions = array("initial1", "initial2", "initial3", "initial4", "initial5");
+$initialQuestions = array("initial1");
 $data = json_decode($_POST["data"], true);
 $id = !empty($_POST["id"]) ? $_POST["id"] : "null";
 

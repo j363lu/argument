@@ -1,11 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { RootState } from './store';
 
-export const types = ["emotional", "narrative", "logicConsequential", "logicMoral", "antiConservative", "control"];
+export const types = ["emotional", "narrative", "logicConsequential", "logicMoral", "control"];
 
 // Define a type for the slice state
 export interface TypeState {
-  value: "emotional" | "narrative" | "logicConsequential" | "logicMoral" | "antiConservative" | "control"
+  value: "emotional" | "narrative" | "logicConsequential" | "logicMoral" | "control"
 }
 
 // Define the initial state using that type

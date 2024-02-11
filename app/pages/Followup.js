@@ -7,6 +7,8 @@ import { DefaultLight } from 'survey-core/themes/default-light';
 
 import demographics from '../json/demographics';
 import { personality } from '../json/personality';
+import decision from '../json/decision';
+import manipulation from '../json/manipulation';
 import { postConversationQuestions } from '../json/initialQuestions';
 
 import { useAppSelector } from '@/lib/hooks';
@@ -77,8 +79,10 @@ function Followup() {
   const surveyJson = {
     // title: "Follow-up Questions",
     pages: [
-      ...postConversationQuestions.pages,
       ...personality.pages,
+      ...decision.pages,
+      ...postConversationQuestions.pages,
+      ...manipulation.pages,
       ...demographics.pages,
     ],
     showQuestionNumbers: "onpage",
