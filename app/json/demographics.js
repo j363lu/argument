@@ -14,9 +14,9 @@ const demographics = {
       min: 0,
       max: 150,
     }, {
-      name: "Gender",
-      title: "Gender",
-      description: "What is your gender identity?",
+      name: "Sex",
+      title: "Sex",
+      description: "What is your sex?",
       type: "radiogroup",
       choices: [
         "Male", "Female", "Prefer not to say"
@@ -49,6 +49,26 @@ const demographics = {
       description: "What is your occupation?",
       type: "text",
       maxLength: 100         
+    }, {
+      name: "Social",
+      title: "Socially conservative/liberal",
+      description: "How socially conservative/liberal are you?",
+      type: "rating",
+      rateCount: 9,
+      rateMin: 1,
+      rateMax: 9,
+      mininumRateDescription: "conservative",
+      maximumRateDescription: "liberal",
+    }, {
+      name: "Fiscal",
+      title: "Fiscally conservative/liberal",
+      description: "How fiscally conservative/liberal are you?",
+      type: "rating",
+      rateCount: 9,
+      rateMin: 1,
+      rateMax: 9,
+      mininumRateDescription: "conservative",
+      maximumRateDescription: "liberal",
     }]
   }],
 };

@@ -9,7 +9,6 @@ import demographics from '../json/demographics';
 import { personality } from '../json/personality';
 import decision from '../json/decision';
 import manipulation from '../json/manipulation';
-import { postConversationQuestions } from '../json/initialQuestions';
 
 import { useAppSelector } from '@/lib/hooks';
 import { selectCompletionCode, selectId } from '@/lib/idSlice';
@@ -81,12 +80,12 @@ function Followup() {
     pages: [
       ...personality.pages,
       ...decision.pages,
-      ...postConversationQuestions.pages,
       ...(type != "control" ? manipulation.pages : []),
       ...demographics.pages,
     ],
     showQuestionNumbers: "onpage",
     showProgressBar: "bottom",
+    showPrevButton: false
   };
 
   // The page after the survey is submitted

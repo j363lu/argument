@@ -71,9 +71,11 @@ function Control() {
   // length between 50 words to 200 words
   survey.onValidateQuestion.add((survey, options) => {
     if (options.name === "Control") {
-      const minChar = 300;
-      if (options.value.length < minChar) {
-        options.error = `Your response should be longer than ${minChar} characters`
+      const minWord = 50;
+      const maxWord = 200;
+      const wordCount = options.value.trim().split(/\s+/).length;
+      if (wordCount < minWord || wordCount > maxWord) {
+        options.error = `Please keep your response between 50-200 words. Your response is ${wordCount} words`
       }
     }
   });

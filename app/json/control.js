@@ -7,10 +7,9 @@ const control = {
     elements: [{
       name: "Control",
       title: "Please write a short paragraph explaining your stance towards legalizing kidney markets and why you hold that stance.",      
-      description: "Please limit your response to around 300-1200 characters.",
+      description: "Please limit your response to 50-200 words.",
       type: "comment",
-      isRequired: true,
-      maxLength: 1200,         
+      isRequired: true,     
     }]
   }],
 };

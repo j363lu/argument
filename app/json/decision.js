@@ -1,4 +1,5 @@
 // This file contains data for the decision question page 
+import { postConversationQuestions } from "./initialQuestions";
 
 // common attributes for all the rating questioins
 const questionTemplate = {
@@ -55,7 +56,9 @@ const decision = {
       name: "intuitive5",
       title: "I weigh feelings more than analysis in making decisions.",      
       ...questionTemplate       
-    },]
+    },
+    ...postConversationQuestions.pages[0].elements
+  ]
   }],
 };
 

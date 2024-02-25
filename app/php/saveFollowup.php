@@ -13,11 +13,13 @@ CREATE TABLE Metadata (
 CREATE TABLE Demographic (
   ID Varchar(13) Primary Key,
   Age TINYINT,
-  Gender Varchar(100),
+  Sex Varchar(100),
   Education Varchar(40),
   Major Varchar(100),
   Income Int,
-  Occupation Varchar(100)
+  Occupation Varchar(100),
+  Social TINYINT,
+  Fiscal TINYINT
 );
 */
 
@@ -107,7 +109,7 @@ if ($conn->connect_error) {
 echo "Database connected successfully \n";
 
 // get data
-$demographics = array("Age", "Gender", "Education", "Major", "Income", "Occupation");
+$demographics = array("Age", "Sex", "Education", "Major", "Income", "Occupation", "Social", "Fiscal");
 $postConversation = array("postConversation1");
 $personality = [];
 for ($i = 1; $i <= 10; $i++) {
