@@ -70,7 +70,7 @@ const questions = [
   "I see myself as someone who is relaxed, handles stress well",
   "I see myself as someone who has few artistic interests",
   "I see myself as someone who is outgoing, sociable",
-  "I see myself as someone who tends tp find fault with others",
+  "I see myself as someone who tends to find fault with others",
   "I see myself as someone who does a thorough job",
   "I see myself as someone who gets nervous easily",
   "I see myself as someone who has an active imagination",
@@ -83,8 +83,9 @@ const questionTemplate = {
   rateMin: 1,
   rateMax: 9,
   isRequired: true,
-  mininumRateDescription: "strongly disagree",
-  maximumRateDescription: "strongly agree",
+  description: "1 = strongly disagree, 9 = strongly agree",
+  mininumRateDescription: "Strongly disagree",
+  maximumRateDescription: "Strongly agree",
 }
 
 const elements = questions.map((q, i) => {
@@ -102,8 +103,6 @@ elements.push({
 
 export const personality = {
   pages: [{
-    title: "Personality questions",
-    description: "How well do the following statements describe your personality?",
     elements: elements
   }],
 };

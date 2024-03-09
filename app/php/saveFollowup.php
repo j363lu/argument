@@ -15,9 +15,7 @@ CREATE TABLE Demographic (
   Age TINYINT,
   Sex Varchar(100),
   Education Varchar(40),
-  Major Varchar(100),
   Income Int,
-  Occupation Varchar(100),
   Social TINYINT,
   Fiscal TINYINT
 );
@@ -109,7 +107,7 @@ if ($conn->connect_error) {
 echo "Database connected successfully \n";
 
 // get data
-$demographics = array("Age", "Sex", "Education", "Major", "Income", "Occupation", "Social", "Fiscal");
+$demographics = array("Age", "Sex", "Education", "Income", "Social", "Fiscal");
 $postConversation = array("postConversation1");
 $personality = [];
 for ($i = 1; $i <= 10; $i++) {

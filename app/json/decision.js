@@ -1,5 +1,6 @@
 // This file contains data for the decision question page 
 import { postConversationQuestions } from "./initialQuestions";
+import { shuffleArray } from "@/lib/helperFuncs";
 
 // common attributes for all the rating questioins
 const questionTemplate = {
@@ -8,14 +9,14 @@ const questionTemplate = {
   rateMin: 1,
   rateMax: 9,
   isRequired: true,
-  mininumRateDescription: "strongly disagree",
-  maximumRateDescription: "strongly agree",
+  description: "1 = strongly disagree, 5 = strongly agree",
+  mininumRateDescription: "Strongly disagree",
+  maximumRateDescription: "Strongly agree",
 }
 
 // The structure of the decision questions
-const decision = {
+let decision = {
   pages: [{
-    title: "Decision Style Questions",
     elements: [{
       name: "rational1",
       title: "I prefer to gather all the necessary information before committing to a decision.",      
@@ -57,9 +58,11 @@ const decision = {
       title: "I weigh feelings more than analysis in making decisions.",      
       ...questionTemplate       
     },
-    ...postConversationQuestions.pages[0].elements
-  ]
+    ]
   }],
 };
+
+shuffleArray(decision.pages[0].elements);
+decision.pages[0].elements.push(...postConversationQuestions.pages[0].elements);
 
 export default decision;

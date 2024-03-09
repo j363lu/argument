@@ -31,12 +31,6 @@ const demographics = {
         "Less than a high school diploma", "High school diploma or equivalent", "Non-university diploma/certificate", "Bachelor's degree", "Master's degree", "Doctorate"
       ]   
     }, {
-      name: "Major",
-      title: "Major(s)",
-      description: "What was/is your post-secondary major (in the event that you have completed or are enrolled in post-secondary education)?",
-      type: "text",
-      maxLength: 100         
-    }, {
       name: "Income",
       title: "Income",
       description: "What is your average annual household income (rounded to the nearest thousand)?",
@@ -44,31 +38,25 @@ const demographics = {
       inputType: "number",
       min: 0           
     }, {
-      name: "Occupation",
-      title: "Occupation",      
-      description: "What is your occupation?",
-      type: "text",
-      maxLength: 100         
-    }, {
       name: "Social",
       title: "Socially conservative/liberal",
-      description: "How socially conservative/liberal are you?",
+      description: "How socially conservative/liberal are you? 1 = socially conservative, 9 = socially liberal",
       type: "rating",
       rateCount: 9,
       rateMin: 1,
       rateMax: 9,
-      mininumRateDescription: "conservative",
-      maximumRateDescription: "liberal",
+      mininumRateDescription: "Conservative",
+      maximumRateDescription: "Liberal",
     }, {
       name: "Fiscal",
       title: "Fiscally conservative/liberal",
-      description: "How fiscally conservative/liberal are you?",
+      description: "How fiscally conservative/liberal are you? 1 = fiscally conservative, 9 = fiscally liberal",
       type: "rating",
       rateCount: 9,
       rateMin: 1,
       rateMax: 9,
-      mininumRateDescription: "conservative",
-      maximumRateDescription: "liberal",
+      mininumRateDescription: "Conservative",
+      maximumRateDescription: "Liberal",
     }]
   }],
 };

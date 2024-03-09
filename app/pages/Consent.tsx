@@ -21,14 +21,13 @@ function Consent() {
 
         <p><strong>* Please read this consent form and select the applicable choice.</strong></p>
 
-        <p><strong>Title of Project:</strong> Argumentative AI</p>
+        <p><strong>Title of Project:</strong> Attitudes towards social issues</p>
 
-        <p><strong>Faculty Supervisor:</strong></p>
-        <p>Dr. Samuel Johnson</p>
+        <p><strong>Student Investigator:</strong></p>
+        <p>Jordan Sheen</p>
         <ul>
           <li>University of Waterloo, Waterloo, Ontario, Canada (Psychology)</li>
-          <li><a href="mailto: samuel.johnson@uwaterloo.ca">samuel.johnson@uwaterloo.ca</a></li>
-          <li>519-888-4567 x41339</li>
+          <li><a href="mailto: jsheen@uwaterloo.ca">jsheen@uwaterloo.ca</a></li>
         </ul>
       </Container>
 
@@ -62,7 +61,7 @@ function Consent() {
         </p>
 
         <p>
-          We value your honest participation. The entire study will last approximately 8 minutes.
+          We value your honest participation. The entire study will last approximately 6 minutes for your first session and 1 minute for your second.
         </p>
 
         <br />
@@ -74,12 +73,7 @@ function Consent() {
 
         <p>
           Your participation in this study is voluntary. 
-          Our current estimate for the length of this study is 8 minutes, 
-          once coded this will be tested and the payment amount will be adjusted accordingly 
-          at the rate of $9USD per hour. You may decline to answer any question that 
-          you do not wish to answer by leaving them blank, and you can withdraw your participation
-           at any time by not submitting responses without penalty or loss of credit. 
-           To receive credit, please proceed to the end of the questionnaire.
+          Our current estimate for the length of this study is 6 minutes for the first session and 1 minute for the second, once coded this will be tested and the payment amount will be adjusted accordingly at the rate of $9USD per hour for the first session and $18USD an hour for the second. You may decline to answer any question that you do not wish to answer by leaving them blank, and you can withdraw your participation at any time by not submitting responses without penalty or loss of credit. To receive credit, please proceed to the end of the questionnaire.
         </p>
 
         <strong><p>Personal Benefits of the Study</p></strong>

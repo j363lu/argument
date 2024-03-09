@@ -50,7 +50,8 @@ export default function Chat() {
 
   return (
     <main className="flex flex-col items-center justify-between pb-40">
-      {messages.length > 1 ? (
+      <Panel />
+      {messages.length > 1 && (
         messages.map((message, i) => {
           if (message.role === "system") return
 
@@ -90,8 +91,6 @@ export default function Chat() {
             </div>
           </div>)
         })
-      ) : (
-        <Panel />
       )}
 
       {/* input */}

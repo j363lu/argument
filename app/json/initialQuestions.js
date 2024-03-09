@@ -25,8 +25,9 @@ export const initialQuestions = {
     elements: [{
       name: "initial1",
       title: questions[0],
-      mininumRateDescription: "completely against",
-      maximumRateDescription: "completely for",
+      description: "1 = completely against legal kidney markets, 9 = completely for legal kidney markets",
+      mininumRateDescription: "Completely against",
+      maximumRateDescription: "Completely for",
       ...questionTemplate
     }],  
   }],
@@ -39,8 +40,9 @@ export const postConversationQuestions = {
     elements: [{
       name: "postConversation1",
       title: questions[0],
-      mininumRateDescription: "Never legalize it",
-      maximumRateDescription: "Legalize it now",
+      description: "1 = completely against legal kidney markets, 9 = completely for legal kidney markets",
+      mininumRateDescription: "Completely against",
+      maximumRateDescription: "Completely for",
       ...questionTemplate
     }],  
   }],

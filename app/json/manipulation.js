@@ -7,14 +7,14 @@ const questionTemplate = {
   rateMin: 1,
   rateMax: 9,
   isRequired: true,
-  mininumRateDescription: "strongly disagree",
-  maximumRateDescription: "strongly agree",
+  description: "1 = strongly disagree, 9 = strongly agree",
+  mininumRateDescription: "Strongly disagree",
+  maximumRateDescription: "Strongly agree",
 }
 
 // The structure of the decision questions
 const manipulation = {
   pages: [{
-    title: "AI questions",
     elements: [{
       name: "manipulation1",
       title: "Did the AI give responses that argued about the good of society?",      
