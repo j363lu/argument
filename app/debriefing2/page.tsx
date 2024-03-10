@@ -19,7 +19,7 @@ function Debriefing() {
 
       <p>
       We hypothesized that:
-        <ol>
+        <ol className='pl-5'>
           <li>1. All persuasive techniques will change short-term attitudes.</li>
           <li>2. Arguments that emphasize logic will be more persuasive when they are emphasizing deontology (moral intentions) than when they are emphasizing utilitarianism (moral consequences).</li>
           <li>3. Intuitive arguments will be more persuasive than logical ones.</li>

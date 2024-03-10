@@ -62,6 +62,8 @@ function Part2() {
     <br>
     <h3>Here is your completion code: </h3>
     <br>
+    <h4>${completionCode}</h4>
+    <br>
     <h3>Click <a href="/debriefing2" target="_blank">here</a> for more information about the study in a new tab</h3>
   `;
 
