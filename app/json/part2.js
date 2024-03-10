@@ -14,7 +14,7 @@ const questionTemplate = {
 const part2 = {
   pages: [{
     elements: [
-      part2Questions.pages[0].elements,
+      ...part2Questions.pages[0].elements,
     {
       name: "AI1",
       title: "Did you feel as though the AI was arguing with you?",      
