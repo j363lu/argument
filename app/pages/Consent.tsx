@@ -25,7 +25,7 @@ function Consent() {
 
         <p><strong>Student Investigator:</strong></p>
         <p>Jordan Sheen</p>
-        <ul>
+        <ul className='list-disc pl-5'>
           <li>University of Waterloo, Waterloo, Ontario, Canada (Psychology)</li>
           <li><a href="mailto: jsheen@uwaterloo.ca">jsheen@uwaterloo.ca</a></li>
         </ul>
@@ -158,7 +158,7 @@ function Consent() {
 
       </Container>
 
-      <NavigationButton disableNext={consent === "0"} part2={true} />
+      <NavigationButton disableNext={consent === "0"} />
 
     </div>
   );
