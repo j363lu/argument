@@ -47,3 +47,17 @@ export const postConversationQuestions = {
     }],  
   }],
 };
+
+export const part2Questions = {
+  pages: [{
+    // description: "Please complete the following questions",
+    elements: [{
+      name: "attitude",
+      title: questions[0],
+      description: "1 = completely against legal kidney markets, 9 = completely for legal kidney markets",
+      mininumRateDescription: "Completely against",
+      maximumRateDescription: "Completely for",
+      ...questionTemplate
+    }],  
+  }],  
+}

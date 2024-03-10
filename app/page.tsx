@@ -4,6 +4,7 @@ import { useAppSelector, useAppDispatch } from "@/lib/hooks";
 import { useEffect, useState } from "react";
 import { selectPage } from "@/lib/pageSlice";
 import { setType, types } from "@/lib/typeSlice";
+import { setID } from "@/lib/idSlice";
 
 import { randomChoice } from "@/lib/helperFuncs";
 
@@ -45,6 +46,14 @@ function Survey() {
         <Control key="control" />,
         <Followup key="followup" />        
       ]);
+    }
+
+    let id = urlParams.get("id");
+
+    console.log(id);
+
+    if (id !== null) {
+      dispatch(setID(id));
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

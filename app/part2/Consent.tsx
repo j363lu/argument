@@ -158,7 +158,7 @@ function Consent() {
 
       </Container>
 
-      <NavigationButton disableNext={consent === "0"} part2={true} />
+      <NavigationButton disableNext={consent === "0"} />
 
     </div>
   );

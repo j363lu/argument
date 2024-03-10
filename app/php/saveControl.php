@@ -2,7 +2,7 @@
 
 /* 
 CREATE TABLE Control (
-  ID Varchar(13) Primary Key,
+  ID Varchar(20) Primary Key,
   response TEXT
 );
 */

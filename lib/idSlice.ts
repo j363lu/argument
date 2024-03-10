@@ -18,8 +18,14 @@ export const idSlice = createSlice({
   name: 'id',
   // `createSlice` will infer the state type from the `initialState` argument
   initialState,
-  reducers: {}
+  reducers: {
+    setID: (state, action) => {
+      state.id = action.payload;
+    } 
+  }
 })
+
+export const { setID } = idSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
 export const selectId = (state: RootState) => state.id.id;

@@ -1,7 +1,7 @@
 <?php
 /* 
 CREATE TABLE Metadata (
-  ID Varchar(13) Primary Key,
+  ID Varchar(20) Primary Key,
   Type Varchar(20),
   StartTimeToronto Timestamp,
   EndTimeToronto Timestamp DEFAULT CURRENT_TIMESTAMP,
@@ -11,7 +11,7 @@ CREATE TABLE Metadata (
 
 /* 
 CREATE TABLE Demographic (
-  ID Varchar(13) Primary Key,
+  ID Varchar(20) Primary Key,
   Age TINYINT,
   Sex Varchar(100),
   Education Varchar(40),
@@ -23,7 +23,7 @@ CREATE TABLE Demographic (
 
 /* 
 CREATE TABLE Decision (
-  ID Varchar(13) Primary Key,
+  ID Varchar(20) Primary Key,
   rational1 TINYINT,
   rational2 TINYINT,
   rational3 TINYINT,
@@ -39,7 +39,7 @@ CREATE TABLE Decision (
 
 /* 
 CREATE TABLE Personality (
-  ID Varchar(13) Primary Key,
+  ID Varchar(20) Primary Key,
   personality1 TINYINT,
   personality2 TINYINT,
   personality3 TINYINT,
@@ -56,7 +56,7 @@ CREATE TABLE Personality (
 
 /* 
 CREATE TABLE Manipulation (
-  ID Varchar(13) Primary Key,
+  ID Varchar(20) Primary Key,
   manipulation1 TINYINT,
   manipulation2 TINYINT,
   manipulation3 TINYINT,
@@ -68,14 +68,14 @@ CREATE TABLE Manipulation (
 
 /* 
 CREATE TABLE PostConversation (
-  ID Varchar(13) Primary Key,
+  ID Varchar(20) Primary Key,
   postConversation1 TINYINT
 );
 */
 
 /* 
 CREATE TABLE Messages (
-  ID Varchar(13) Primary Key,
+  ID Varchar(20) Primary Key,
   systemPrompt TEXT,
   user1 TEXT,
   bot1 TEXT,

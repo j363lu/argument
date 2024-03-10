@@ -1,9 +1,16 @@
 <?php
 
 /* 
-CREATE TABLE InitialQuestions (
+CREATE TABLE Part2 (
   ID Varchar(20) Primary Key,
-  initial1 TINYINT
+  CompletionCode Varchar(25),
+  attitude TINYINT,
+  AI1 TINYINT,
+  AI2 TINYINT,
+  AI3 TINYINT,
+  AI4 TINYINT,
+  AI5 TINYINT,
+  AI6 TINYINT
 );
 */
 
@@ -26,17 +33,17 @@ if ($conn->connect_error) {
 echo "Database connected successfully \n";
 
 // get data
-$initialQuestions = array("initial1");
 $data = json_decode($_POST["data"], true);
 $id = !empty($_POST["id"]) ? $_POST["id"] : "null";
+$completionCode = !empty($_POST["completionCode"]) ? $_POST["completionCode"] : "null";
+
+$part2 = array("attitude", "AI1", "AI2", "AI3", "AI4", "AI5", "AI6");
 
 // construct sql query
-$sql = "INSERT INTO InitialQuestions VALUES ({$id}";
-foreach ($initialQuestions as $column) {
+$sql = "INSERT INTO Part2 VALUES ({$id}";
+foreach ($part2 as $column) {
   $value = $data[$column];
   if (isset($value) && gettype($value) === "integer") {
-    $sql = "{$sql},{$value}";
-  } elseif (isset($value) && gettype($value) === "double") {
     $sql = "{$sql},{$value}";
   } elseif (!empty($value) && gettype($value) === "string") {
     $value = $conn->real_escape_string($value);
@@ -49,7 +56,7 @@ $sql = $sql . ")";
 
 // send query
 if ($conn->query($sql) === TRUE) {
-  echo "New initialQuestions record created successfully \n";
+  echo "New part2 record created successfully \n";
 } else {
   echo "Error: " . $sql . "<br>" . $conn->error;
 }

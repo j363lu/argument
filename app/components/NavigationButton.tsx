@@ -1,13 +1,19 @@
 import { useAppDispatch } from '@/lib/hooks';
-import { incrementPage } from '@/lib/pageSlice';
+import { incrementPage, incrementPart2Page } from '@/lib/pageSlice';
 import { Container, Box, Button } from '@mui/material';
 
-function NavigationButton({ disableNext, action=()=>{} }: { disableNext?: boolean, action?: () => void }) {
+function NavigationButton({ disableNext, action=()=>{}, part2 = false }: { disableNext?: boolean, action?: () => void, part2?: boolean }) {
   const dispatch = useAppDispatch();
 
   const nextPage = () => {
     action();
-    dispatch(incrementPage());
+
+    if (part2) {
+      dispatch(incrementPart2Page());
+    } else {
+      dispatch(incrementPage());
+    }
+    
 
     // scroll to the top
     window.scrollTo({
