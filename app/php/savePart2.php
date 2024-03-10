@@ -40,7 +40,7 @@ $completionCode = !empty($_POST["completionCode"]) ? $_POST["completionCode"] : 
 $part2 = array("attitude", "AI1", "AI2", "AI3", "AI4", "AI5", "AI6");
 
 // construct sql query
-$sql = "INSERT INTO Part2 VALUES ({$id}";
+$sql = "INSERT INTO Part2 VALUES ({$id},'{$completionCode}'";
 foreach ($part2 as $column) {
   $value = $data[$column];
   if (isset($value) && gettype($value) === "integer") {

@@ -17,16 +17,16 @@ function Debriefing() {
       We sought to investigate what sorts of persuasive arguments are the most effective long-term. We chose the topic of legalizing kidney markets as most people are opposed to them while most economists are in favour of them. We also wanted to examine how different persuasive techniques affect those with different thinking styles differently. 
       </p>
 
-      <div>
+      <p>
       We hypothesized that:
         <ol>
-          <li>All persuasive techniques will change short-term attitudes.</li>
-          <li>Arguments that emphasize logic will be more persuasive when they are emphasizing deontology (moral intentions) than when they are emphasizing utilitarianism (moral consequences).</li>
-          <li>Intuitive arguments will be more persuasive than logical ones.</li>
-          <li>Intuitive thinkers will be more persuaded by intuitive-like arguments.</li>
-          <li>Rational thinkers will be more persuaded by rational arguments.</li>
+          <li>1. All persuasive techniques will change short-term attitudes.</li>
+          <li>2. Arguments that emphasize logic will be more persuasive when they are emphasizing deontology (moral intentions) than when they are emphasizing utilitarianism (moral consequences).</li>
+          <li>3. Intuitive arguments will be more persuasive than logical ones.</li>
+          <li>4. Intuitive thinkers will be more persuaded by intuitive-like arguments.</li>
+          <li>5. Rational thinkers will be more persuaded by rational arguments.</li>
         </ol>
-      </div>
+      </p>
 
       <p>
       We had no hypotheses surrounding the personality questions that you answered. The questionnaire was administered mainly to provide some time before the first and second time you were asked about your attitudes toward legal kidney markets. We did this because people generally want to be consistent, and we wanted to space both attitude questions out so that you wouldn’t be thinking of the first time you answered how you felt about kidney markets to interfere with the second time you were asked.
