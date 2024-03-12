@@ -13,9 +13,10 @@ const questionTemplate = {
 
 const part2 = {
   pages: [{
-    elements: [
-      ...part2Questions.pages[0].elements,
-    {
+    description: "Please think back to the previous week when you discussed kidney markets with an AI while answering the following questions.",
+    elements: [...part2Questions.pages[0].elements]
+  }, {
+    elements: [{
       name: "AI1",
       title: "Did you feel as though the AI was arguing with you?",      
       ...questionTemplate       

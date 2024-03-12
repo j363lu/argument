@@ -9,7 +9,7 @@ const questionTemplate = {
   rateMin: 1,
   rateMax: 9,
   isRequired: true,
-  description: "1 = strongly disagree, 5 = strongly agree",
+  description: "1 = strongly disagree, 9 = strongly agree",
   mininumRateDescription: "Strongly disagree",
   maximumRateDescription: "Strongly agree",
 }

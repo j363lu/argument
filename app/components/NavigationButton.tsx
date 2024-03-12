@@ -24,7 +24,7 @@ function NavigationButton({ disableNext, action=()=>{}, part2 = false }: { disab
   }
 
   return (
-    <Container maxWidth="md" disableGutters sx={{marginBottom: "30px"}}>
+    <Container maxWidth="md" disableGutters sx={{marginBottom: "30px", marginTop: "30px"}}>
       <Box display="flex" justifyContent="flex-end">
         <Button onClick={nextPage} variant="contained" disabled={disableNext}>
           Next &#62;

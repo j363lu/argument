@@ -93,6 +93,8 @@ export default function Chat() {
         })
       )}
 
+      {messages.length < 9 || isLoading ? <></> : <NavigationButton action={() => {dispatch(setMessages(messages.map(m => m.content)))}} />}
+
       {/* input */}
       <div className="fixed bottom-0 flex w-full flex-col items-center space-y-3 bg-gradient-to-b from-transparent via-gray-100 to-gray-100 p-5 pb-3 sm:px-0">
         {messages.length < 9 ?
@@ -139,7 +141,7 @@ export default function Chat() {
               />
             )}
           </button>
-        </form> : <NavigationButton action={() => {dispatch(setMessages(messages.map(m => m.content)))}} />}
+        </form> : <></>}
       </div>
 
     </main>

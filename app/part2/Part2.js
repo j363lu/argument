@@ -7,6 +7,7 @@ import { DefaultLight } from 'survey-core/themes/default-light';
 
 import { useAppSelector } from '@/lib/hooks';
 import { selectCompletionCode, selectId } from '@/lib/idSlice';
+import { selectPart2Type } from '@/lib/typeSlice';
 
 import part2 from "../json/part2";
 
@@ -15,6 +16,7 @@ const part2Server = "https://artsresearch.uwaterloo.ca/~dicelab/argument-backend
 
 function Part2() {
   const id = useAppSelector(selectId);
+  const type = useAppSelector(selectPart2Type);
   const completionCode = useAppSelector(selectCompletionCode);
 
   // post data to a specified url
@@ -49,7 +51,8 @@ function Part2() {
   const surveyJson = {
     // title: "Follow-up Questions",
     pages: [
-      ...part2.pages
+      part2.pages[0],
+      (type != "control" ? part2.pages[1] : {}),
     ],
     showQuestionNumbers: "onpage",
     showProgressBar: "bottom",
