@@ -36,3 +36,8 @@ p {
 label.sd-rating__item {
   border-color: transparent !important;
 }
+
+.sd-page__description {
+  color: #000000 !important;
+  font-weight: 700 !important;
+}

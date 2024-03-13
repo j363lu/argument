@@ -3,7 +3,7 @@
 import { Model } from 'survey-core';
 import { Survey } from 'survey-react-ui';
 import 'survey-core/defaultV2.min.css';
-import { PlainLight } from 'survey-core/themes/plain-light';
+import { DefaultLight } from 'survey-core/themes/default-light';
 
 import { useAppSelector } from '@/lib/hooks';
 import { selectCompletionCode, selectId } from '@/lib/idSlice';
@@ -72,7 +72,7 @@ function Part2() {
 
   // survey configurations
   const survey = new Model(surveyJson);
-  survey.applyTheme(PlainLight);
+  survey.applyTheme(DefaultLight);
   survey.completedHtml = completedHtml;
   survey.onComplete.add(complete);
 
