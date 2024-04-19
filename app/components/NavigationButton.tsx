@@ -1,8 +1,8 @@
 import { useAppDispatch } from '@/lib/hooks';
-import { incrementPage, incrementPart2Page } from '@/lib/pageSlice';
+import { incrementPage, incrementPart2Page, incrementPart3Page, incrementPart4Page } from '@/lib/pageSlice';
 import { Container, Box, Button } from '@mui/material';
 
-function NavigationButton({ disableNext, action=()=>{}, part2 = false }: { disableNext?: boolean, action?: () => void, part2?: boolean }) {
+function NavigationButton({ disableNext, action=()=>{}, part2 = false, part3 = false, part4 = false }: { disableNext?: boolean, action?: () => void, part2?: boolean, part3?:boolean, part4?:boolean }) {
   const dispatch = useAppDispatch();
 
   const nextPage = () => {
@@ -10,6 +10,10 @@ function NavigationButton({ disableNext, action=()=>{}, part2 = false }: { disab
 
     if (part2) {
       dispatch(incrementPart2Page());
+    } else if (part3) {
+      dispatch(incrementPart3Page());
+    } else if (part4) {
+      dispatch(incrementPart4Page());
     } else {
       dispatch(incrementPage());
     }
