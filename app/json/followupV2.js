@@ -13,7 +13,7 @@ const questionTemplate = {
 }
 
 // The structure of the questions
-export const FollowupV2 = {
+export const followupV2 = {
   pages: [{
     elements: [{
       name: "AIFeelings",

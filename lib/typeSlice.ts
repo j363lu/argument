@@ -9,14 +9,16 @@ export const types = ["value", "reason", "control"];
 export interface TypeState {
   topic: "freeTrade" | "kidneyMarkets",
   politicalPreference: "democrat" | "republican",
-  type: "value" | "reason" | "control"
+  type: "value" | "reason" | "control",
+  part2: "value" | "reason" | "control"
 }
 
 // Define the initial state using that type
 const initialState: TypeState = {
   topic: "freeTrade",
   politicalPreference: "democrat",
-  type: "value"
+  type: "value",
+  part2: "value"
 }
 
 export const typeSlice = createSlice({
@@ -40,15 +42,22 @@ export const typeSlice = createSlice({
       if (types.includes(action.payload)) {
         state.type = action.payload;
       }
+    },
+
+    setPart2Type: (state, action) => {
+      if (types.includes(action.payload)) {
+        state.part2 = action.payload;
+      }
     }
   }
 })
 
-export const { setTopic, setPoliticalPreference, setType } = typeSlice.actions;
+export const { setTopic, setPoliticalPreference, setType, setPart2Type } = typeSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
 export const selectTopic = (state: RootState) => state.type.topic;
 export const selectPoliticalPreference = (state: RootState) => state.type.politicalPreference;
 export const selectType = (state: RootState) => state.type.type;
+export const selectPart2Type = (state: RootState) => state.type.part2;
 
 export default typeSlice.reducer;
