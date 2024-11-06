@@ -8,7 +8,7 @@ CREATE TABLE InitialQuestions (
   voteDemocrats TINYINT,
   voteRepublicans TINYINT,
   topic TINYINT,
-  politicalPreference TINYINT
+  politicalScale TINYINT
 );
 */
 
@@ -31,7 +31,7 @@ if ($conn->connect_error) {
 echo "Database connected successfully \n";
 
 // get data
-$initialQuestions = array("tax", "treatPeople", "voteDemocrats", "voteRepublicans", "topic", "politicalPreference");
+$initialQuestions = array("tax", "treatPeople", "voteDemocrats", "voteRepublicans", "topic", "politicalScale");
 $data = json_decode($_POST["data"], true);
 $id = !empty($_POST["id"]) ? $_POST["id"] : "null";
 

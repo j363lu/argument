@@ -63,8 +63,8 @@ export const kidneyMarkets = {
   ...questionTemplate
 };
 
-export const politicalPreference = {
-  name: "politicalPreference",
+export const politicalScale = {
+  name: "politicalScale",
   title: "Do you identify more with democrat or republican values overall?",
   description: "1 = very democrat, 4 = very republican",
   mininumRateDescription: "very democrat",
