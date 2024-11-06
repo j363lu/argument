@@ -24,27 +24,39 @@ export const followupV2 = {
 };
 
 export const postFreeTrade = {
-  name: "postTopic",
-  title: "How favorably do you look at free trade?",
-  ...questionTemplate
+  pages: [{
+    elements: [{
+      name: "postTopic",
+      title: "How favorably do you look at free trade?",      
+      ...questionTemplate       
+    }]
+  }],
 };
 
 export const postKidneyMarkets = {
-  name: "postTopic",
-  title: "How favorably do you look at kidney markets?",
-  ...questionTemplate
+  pages: [{
+    elements: [{
+      name: "postTopic",
+      title: "How favorably do you look at kidney markets?",      
+      ...questionTemplate       
+    }]
+  }],
 };
 
 export const writingImpact= {
-  name: "writingImpact",
-  title: "Writing about FREE TRADE/KIDNEY MARKETS makes you",
+  pages: [{
+    elements: [{
+      name: "writingImpact",
+      title: "Writing about FREE TRADE/KIDNEY MARKETS makes you",      
   
-  type: "rating",
-  rateCount: 5,
-  rateMin: 1,
-  rateMax: 5,
-  isRequired: true,
-  description: "1 = much more left wing, 3 = have no change, 5 = much more right wing",
-  mininumRateDescription: "much more left wing",
-  maximumRateDescription: "much more right wing",
+      type: "rating",
+      rateCount: 5,
+      rateMin: 1,
+      rateMax: 5,
+      isRequired: true,
+      description: "1 = much more left wing, 3 = have no change, 5 = much more right wing",
+      mininumRateDescription: "much more left wing",
+      maximumRateDescription: "much more right wing",
+    }]
+  }],
 }
