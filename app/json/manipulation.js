@@ -1,6 +1,6 @@
 // This file contains data for the manipulation question page 
 
-// common attributes for all the manipulation questioins
+// common attributes for all the manipulation questions
 const questionTemplate = {
   type: "rating",
   rateCount: 9,

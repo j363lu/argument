@@ -1,18 +1,22 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { RootState } from './store';
 
-export const types = ["emotional", "narrative", "logicConsequential", "logicMoral", "control"];
+export const topics = ["freeTrade", "kidneyMarkets"];
+export const politicalPreference = ["democrat", "republican"]
+export const types = ["value", "reason", "control"];
 
 // Define a type for the slice state
 export interface TypeState {
-  value: "emotional" | "narrative" | "logicConsequential" | "logicMoral" | "control",
-  part2: "emotional" | "narrative" | "logicConsequential" | "logicMoral" | "control",
+  topic: "freeTrade" | "kidneyMarkets",
+  politicalPreference: "democrat" | "republican",
+  type: "value" | "reason" | "control"
 }
 
 // Define the initial state using that type
 const initialState: TypeState = {
-  value: "emotional",
-  part2: "emotional"
+  topic: "freeTrade",
+  politicalPreference: "democrat",
+  type: "value"
 }
 
 export const typeSlice = createSlice({
@@ -20,24 +24,31 @@ export const typeSlice = createSlice({
   // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers: {
-    setType: (state, action) => {
-      if (types.includes(action.payload)) {
-        state.value = action.payload;
+    setTopic: (state, action) => {
+      if (topics.includes(action.payload)) {
+        state.topic = action.payload;
       }
     },
 
-    setPart2Type: (state, action) => {
+    setPoliticalPreference: (state, action) => {
+      if (politicalPreference.includes(action.payload)) {
+        state.politicalPreference = action.payload;
+      }
+    },    
+
+    setType: (state, action) => {
       if (types.includes(action.payload)) {
-        state.part2 = action.payload;
+        state.type = action.payload;
       }
     }
   }
 })
 
-export const { setType, setPart2Type } = typeSlice.actions;
+export const { setTopic, setPoliticalPreference, setType } = typeSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
-export const selectType = (state: RootState) => state.type.value;
-export const selectPart2Type = (state: RootState) => state.type.part2;
+export const selectTopic = (state: RootState) => state.type.topic;
+export const selectPoliticalPreference = (state: RootState) => state.type.politicalPreference;
+export const selectType = (state: RootState) => state.type.type;
 
 export default typeSlice.reducer;

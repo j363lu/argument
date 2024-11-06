@@ -13,8 +13,7 @@ import { toast } from "sonner";
 import Panel from "../components/Panel";
 
 import { useAppSelector, useAppDispatch } from "@/lib/hooks";
-import { selectType } from "@/lib/typeSlice";
-import { systemPrompts } from "@/lib/helperFuncs";
+import { selectTopic, selectPoliticalPreference, selectType } from "@/lib/typeSlice";
 import { setMessages } from "@/lib/messagesSlice";
 
 import NavigationButton from "../components/NavigationButton";
@@ -23,8 +22,30 @@ export default function Chat() {
   const formRef = useRef<HTMLFormElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
+  const topic = useAppSelector(selectTopic);
   const type = useAppSelector(selectType);
+  const politicalPreference = useAppSelector(selectPoliticalPreference);
   const dispatch = useAppDispatch();
+
+  // determine systemPrompt
+  let systemPrompt = "";
+  if (politicalPreference == "democrat" && topic == "freeTrade" && type == "value") {
+    systemPrompt = "You are trying to convince me that free trade should be legal. Persuade by appealing to democratic values. Keep your responses to one paragraph.";
+  } else if (politicalPreference == "democrat" && topic == "freeTrade" && type == "reason") {
+    systemPrompt = "You are trying to convince me that free trade should be legal. Persuade by explaining why republicans do not want free trade. Keep your responses to one paragraph.";
+  } else if (politicalPreference == "democrat" && topic == "kidneyMarkets" && type == "value") {
+    systemPrompt = "You are trying to convince me that kidney markets should be legal. Persuade by appealing to democratic values. Keep your responses to one paragraph.";
+  } else if (politicalPreference == "democrat" && topic == "kidneyMarkets" && type == "reason") {
+    systemPrompt = "You are trying to convince me that kidney markets should be legal. Persuade by explaining why republicans do not want legal kidney markets. Keep your responses to one paragraph.";
+  } else if (politicalPreference == "republican" && topic == "freeTrade" && type == "value") {
+    systemPrompt = "You are trying to convince me that free trade should be legal. Persuade by appealing to republican values. Keep your responses to one paragraph.";
+  } else if (politicalPreference == "republican" && topic == "freeTrade" && type == "reason") {
+    systemPrompt = "You are trying to convince me that free trade should be legal. Persuade by explaining why democrats do not want free trade. Keep your responses to one paragraph.";
+  } else if (politicalPreference == "republican" && topic == "kidneyMarkets" && type == "value") {
+    systemPrompt = "You are trying to convince me that kidney markets should be legal. Persuade by appealing to republican values. Keep your responses to one paragraph.";
+  } else if (politicalPreference == "republican" && topic == "kidneyMarkets" && type == "reason") {
+    systemPrompt = "You are trying to convince me that kidney markets should be legal. Persuade by explaining why democrats do not want legal kidney markets. Keep your responses to one paragraph.";
+  }
 
   const { messages, input, setInput, handleSubmit, isLoading } = useChat({
     onResponse: (response) => {
@@ -43,7 +64,7 @@ export default function Chat() {
       });
     },
     api: "/api/openai",
-    initialMessages: [{id: "systemPrompt", role: "system", content: systemPrompts[type]}]
+    initialMessages: [{id: "systemPrompt", role: "system", content: systemPrompt}]
   });
 
   const disabled = isLoading || input.length === 0;
