@@ -1,5 +1,4 @@
 // This file contains data for the decision question page 
-import { postConversationQuestions } from "./initialQuestions";
 import { shuffleArray } from "@/lib/helperFuncs";
 
 // common attributes for all the rating questioins
@@ -63,6 +62,5 @@ let decision = {
 };
 
 shuffleArray(decision.pages[0].elements);
-decision.pages[0].elements.push(...postConversationQuestions.pages[0].elements);
 
 export default decision;
