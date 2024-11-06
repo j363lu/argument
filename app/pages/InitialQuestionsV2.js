@@ -67,19 +67,12 @@ function InitialQuestionsV2() {
 
   // The structure of the demographic questions
   let surveyJson = {
-    pages: [
-      ...initialQuestionsV2.pages,
-    ],
+    pages: [{
+      title: "Rating questions",
+      elements: [...initialQuestionsV2.pages[0].elements, topic == "freeTrade" ? freeTrade : kidneyMarkets, politicalPreference],
+    }],
     showQuestionNumbers: "onpage",
   };
-
-  // add topic and politicalPreference question
-  if (topic == "freeTrade") {
-    surveyJson.pages[0].elements.push(freeTrade);
-  } else if (topic == "kidneyMarkets") {
-    surveyJson.pages[0].elements.push(kidneyMarkets);
-  }
-  surveyJson.pages[0].elements.push(politicalPreference)
 
   // survey configurations
   const survey = new Model(surveyJson);
