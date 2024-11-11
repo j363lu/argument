@@ -1,10 +1,8 @@
 <h1 align="center">Argument analysis</h1>
 
-
 <p align="center">
  Built with OpenAI Functions and Vercel AI SDK. 
 </p>
-
 
 <p align="center">
   <a href="#introduction"><strong>Introduction</strong></a> ·
@@ -16,11 +14,7 @@
 
 ## Introduction
 
-
-
 ## Deploy your own
-
-
 
 ## Setting Up Locally
 
@@ -37,5 +31,3 @@ This project is built on the following stack:
 - [Vercel AI SDK](https://sdk.vercel.ai/docs) – AI streaming library
 - [Vercel](https://vercel.com) – deployments
 - [TailwindCSS](https://tailwindcss.com/) – styles
-
-
