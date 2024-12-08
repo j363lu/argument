@@ -12,7 +12,7 @@ import { incrementPage } from '@/lib/pageSlice';
 import { selectId } from '@/lib/idSlice';
 import { selectTopic } from '@/lib/typeSlice';
 
-import { useEffect, useRef } from 'react';
+// import { useEffect, useRef } from 'react';
 
 // server location
 const controlServer = "https://artsresearch.uwaterloo.ca/~dicelab/argument-backend/php/saveControlV2.php"; 
@@ -28,7 +28,7 @@ const controlServer = "https://artsresearch.uwaterloo.ca/~dicelab/argument-backe
 function ControlV2() {
   const id = useAppSelector(selectId);
   const topic = useAppSelector(selectTopic);
-  const elementRef = useRef<HTMLDivElement>(null);
+  // const elementRef = useRef<HTMLDivElement>(null);
   const dispatch = useAppDispatch();
 
   // post data to a specified url
@@ -48,27 +48,27 @@ function ControlV2() {
     });  
   }
 
-  useEffect(() => {
-    const disableCopyPaste = (e) => {
-      e.preventDefault();
-      alert('Copying and pasting are disabled.');
-    };
+  // useEffect(() => {
+  //   const disableCopyPaste = (e) => {
+  //     e.preventDefault();
+  //     alert('Copying and pasting are disabled.');
+  //   };
 
-    const element = elementRef.current;
+  //   const element = elementRef.current;
 
-    if (element) {
-      element.addEventListener('copy', disableCopyPaste);
-      element.addEventListener('paste', disableCopyPaste);
-    }
+  //   if (element) {
+  //     element.addEventListener('copy', disableCopyPaste);
+  //     element.addEventListener('paste', disableCopyPaste);
+  //   }
 
-    return () => {
-      if (element) {
-        element.removeEventListener('copy', disableCopyPaste);
-        element.removeEventListener('paste', disableCopyPaste);
-      }
-    };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  //   return () => {
+  //     if (element) {
+  //       element.removeEventListener('copy', disableCopyPaste);
+  //       element.removeEventListener('paste', disableCopyPaste);
+  //     }
+  //   };
+  // // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
 
   const complete = (sender) => {
     console.log(sender.data);
@@ -107,6 +107,27 @@ function ControlV2() {
     }
   });
 
+  survey.onAfterRenderQuestion.add((sender, options) => {
+    const questionElement = options.htmlElement;
+
+    // Find input or textarea elements inside the question
+    const inputElements = questionElement.querySelectorAll("textarea");
+
+    inputElements.forEach((input) => {
+      // Add event listener to block copy
+      input.addEventListener("copy", (e) => {
+        e.preventDefault();
+        alert("Copying is disabled for this question.");
+      });
+
+      // Add event listener to block paste
+      input.addEventListener("paste", (e) => {
+        e.preventDefault();
+        alert("Pasting is disabled for this question.");
+      });
+    });
+  });
+
   // saving survey data to local storage 
   // survey.onValueChanged.add(saveSurveyData);
   // survey.onCurrentPageChanged.add(saveSurveyData);
@@ -122,9 +143,7 @@ function ControlV2() {
   // }
 
   return (
-    <div ref={elementRef}>
-      <Survey model={survey} />
-    </div>
+    <Survey model={survey} />
   );
 }
 
