@@ -12,6 +12,8 @@ import { incrementPage } from '@/lib/pageSlice';
 import { selectId } from '@/lib/idSlice';
 import { selectTopic } from '@/lib/typeSlice';
 
+import { useEffect, useRef } from 'react';
+
 // server location
 const controlServer = "https://artsresearch.uwaterloo.ca/~dicelab/argument-backend/php/saveControlV2.php"; 
 
@@ -26,6 +28,7 @@ const controlServer = "https://artsresearch.uwaterloo.ca/~dicelab/argument-backe
 function ControlV2() {
   const id = useAppSelector(selectId);
   const topic = useAppSelector(selectTopic);
+  const elementRef = useRef<HTMLDivElement>(null);
   const dispatch = useAppDispatch();
 
   // post data to a specified url
@@ -44,6 +47,28 @@ function ControlV2() {
       console.log(error);
     });  
   }
+
+  useEffect(() => {
+    const disableCopyPaste = (e) => {
+      e.preventDefault();
+      alert('Copying and pasting are disabled.');
+    };
+
+    const element = elementRef.current;
+
+    if (element) {
+      element.addEventListener('copy', disableCopyPaste);
+      element.addEventListener('paste', disableCopyPaste);
+    }
+
+    return () => {
+      if (element) {
+        element.removeEventListener('copy', disableCopyPaste);
+        element.removeEventListener('paste', disableCopyPaste);
+      }
+    };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const complete = (sender) => {
     console.log(sender.data);
@@ -97,7 +122,7 @@ function ControlV2() {
   // }
 
   return (
-    <Survey model={survey} />
+    <Survey model={survey} ref={elementRef} />
   );
 }
 
