@@ -24,7 +24,7 @@ export const initialQuestionsV2 = {
     elements: [{
       name: "mturkID",
       title: "Please enter your MTurk ID",
-      type: "comment",
+      type: "text",
       isRequired: true,
     }],  
   }, {

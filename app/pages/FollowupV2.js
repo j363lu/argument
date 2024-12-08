@@ -78,6 +78,7 @@ function FollowupV2() {
   // The structure of the followup questions
   const surveyJson = {
     // title: "Follow-up Questions",
+    description: "For each sentence below, please select how uncharacteristic or characteristic (5-point scale) this is for you personally.",
     pages: [
       ...followupV2.pages,
       ...(topic == "freeTrade" ? postFreeTrade.pages : postKidneyMarkets.pages),
