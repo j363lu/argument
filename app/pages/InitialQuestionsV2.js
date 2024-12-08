@@ -5,7 +5,7 @@ import { Survey } from 'survey-react-ui';
 import 'survey-core/defaultV2.min.css';
 import { DefaultLight } from 'survey-core/themes/default-light';
 
-import { initialQuestionsV2, freeTrade, kidneyMarkets, politicalScale } from '../json/initialQuestionsV2';
+import { initialQuestionsV2, freeTrade, kidneyMarkets } from '../json/initialQuestionsV2';
 
 import { useAppSelector } from '@/lib/hooks';
 import { useAppDispatch } from '@/lib/hooks';
@@ -54,7 +54,7 @@ function InitialQuestionsV2() {
     fd.append("id", id);                              // add ID to the data to send
     
     // set politicalPreference
-    if (sender.data.politicalScale == "1" || sender.data.politicalScale == "2") {
+    if (sender.data.politicalScale == "1" || sender.data.politicalScale == "2" || sender.data.politicalScale == "3") {
       dispatch(setPoliticalPreference("democrat"));
     } else {
       dispatch(setPoliticalPreference("republican"));
@@ -67,10 +67,10 @@ function InitialQuestionsV2() {
 
   // The structure of the demographic questions
   let surveyJson = {
-    pages: [{
-      title: "Rating questions",
-      elements: [...initialQuestionsV2.pages[0].elements, topic == "freeTrade" ? freeTrade : kidneyMarkets, politicalScale],
-    }],
+    pages: [
+      ...initialQuestionsV2.pages,
+      ...(topic == "freeTrade" ? freeTrade.pages : kidneyMarkets.pages),
+    ],
     showQuestionNumbers: "onpage",
   };
 

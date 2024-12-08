@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { useChat } from "ai/react";
 import va from "@vercel/analytics";
 import clsx from "clsx";
@@ -46,6 +46,23 @@ export default function Chat() {
   } else if (politicalPreference == "republican" && topic == "kidneyMarkets" && type == "anti-argument") {
     systemPrompt = "I am a conservative. \n\nPlease persuade me to be in favor of people being allowed to buy and sell kidneys, almost exclusively, using examples of why democrats, or liberals, would be against people being allowed to buy and sell kidneys within every response you give to me. \n\nBe uncharitable with how you describe democratic opinions but remain polite. Remain polite.\n\n Keep your answers to one paragraph and do not use overly technical terms. \n\nPlease do not use the term \"conservative,\" \"conservatives,\" or  \"protectionism\" as well. Keep your vocabulary relatively simple. Make it clear that republicans are against free trade. \n\nDo not mention Democrats or liberals in the first sentence of your responses. In your second sentence, mention Democrats or liberals. Do not say \"jumping to conclusions\".\n\nTry you best to argue a point that is relevant to the users' most recent post.";
   }
+
+  useEffect(() => {
+    const disableCopyPaste = (e: ClipboardEvent) => {
+      e.preventDefault();
+      alert('Copying and pasting are disabled on this site.');
+    };
+
+    // Disable copy and paste globally
+    document.addEventListener('copy', disableCopyPaste);
+    document.addEventListener('paste', disableCopyPaste);
+
+    return () => {
+      // Cleanup event listeners on unmount
+      document.removeEventListener('copy', disableCopyPaste);
+      document.removeEventListener('paste', disableCopyPaste);
+    };
+  }, []);
 
   const { messages, input, setInput, handleSubmit, isLoading } = useChat({
     onResponse: (response) => {

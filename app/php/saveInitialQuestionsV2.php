@@ -3,12 +3,14 @@
 /* 
 CREATE TABLE InitialQuestions (
   ID Varchar(20) Primary Key,
-  tax TINYINT,
-  treatPeople TINYINT,
-  voteDemocrats TINYINT,
-  voteRepublicans TINYINT,
-  topic TINYINT,
-  politicalScale TINYINT
+  mturkID Varchar(20),
+  economic TINYINT,
+  social TINYINT,
+  opinionDemocrats TINYINT,
+  opinionRepublicans TINYINT,
+  politicalScale TINYINT, 
+  topicOpinion TINYINT,
+  topicThought TINYINT
 );
 */
 
@@ -31,7 +33,7 @@ if ($conn->connect_error) {
 echo "Database connected successfully \n";
 
 // get data
-$initialQuestions = array("tax", "treatPeople", "voteDemocrats", "voteRepublicans", "topic", "politicalScale");
+$initialQuestions = array("mturkID", "economic", "social", "opinionDemocrats", "opinionRepublicans", "politicalScale", "topicOpinion", "topicThought");
 $data = json_decode($_POST["data"], true);
 $id = !empty($_POST["id"]) ? $_POST["id"] : "null";
 

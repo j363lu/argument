@@ -5,10 +5,7 @@ import { Survey } from 'survey-react-ui';
 import 'survey-core/defaultV2.min.css';
 import { DefaultLight } from 'survey-core/themes/default-light';
 
-import { followupV2, postFreeTrade, postKidneyMarkets, writingImpact } from '../json/followupV2';
-import demographics from '../json/demographics';
-import { personality } from '../json/personality';
-import decision from '../json/decision';
+import { followupV2, postFreeTrade, postKidneyMarkets } from '../json/followupV2';
 
 import { useAppSelector } from '@/lib/hooks';
 import { selectCompletionCode, selectId } from '@/lib/idSlice';
@@ -84,10 +81,20 @@ function FollowupV2() {
     pages: [
       ...followupV2.pages,
       ...(topic == "freeTrade" ? postFreeTrade.pages : postKidneyMarkets.pages),
-      ...writingImpact.pages,
-      ...personality.pages,
-      ...decision.pages,
-      ...demographics.pages
+      {
+        elements: [{
+          name: "writingImpact",
+          title: `Writing about ${topic == "freeTrade" ? "free trade agreement" : "the ability to legally buy or sell kidneys"} made you...`,      
+          type: "rating",
+          rateCount: 5,
+          rateMin: 1,
+          rateMax: 5,
+          isRequired: true,
+          description: "1 = much more democratic, 3 = no change, 5 = much more republican",
+          mininumRateDescription: "much more democratic",
+          maximumRateDescription: "much more republican",
+        }]
+      },
     ],
     showQuestionNumbers: "onpage",
     showProgressBar: "bottom",

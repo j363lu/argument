@@ -12,55 +12,15 @@ CREATE TABLE Metadata (
 */
 
 /* 
-CREATE TABLE Demographic (
-  ID Varchar(20) Primary Key,
-  Age TINYINT,
-  Sex Varchar(100),
-  Education Varchar(40),
-  Income Int,
-  Social TINYINT,
-  Fiscal TINYINT
-);
-*/
-
-/* 
-CREATE TABLE Decision (
-  ID Varchar(20) Primary Key,
-  rational1 TINYINT,
-  rational2 TINYINT,
-  rational3 TINYINT,
-  rational4 TINYINT,
-  rational5 TINYINT,
-  intuitive1 TINYINT,
-  intuitive2 TINYINT,
-  intuitive3 TINYINT,
-  intuitive4 TINYINT,
-  intuitive5 TINYINT
-);
-*/
-
-/* 
-CREATE TABLE Personality (
-  ID Varchar(20) Primary Key,
-  personality1 TINYINT,
-  personality2 TINYINT,
-  personality3 TINYINT,
-  personality4 TINYINT,
-  personality5 TINYINT,
-  personality6 TINYINT,
-  personality7 TINYINT,
-  personality8 TINYINT,
-  personality9 TINYINT,
-  personality10 TINYINT,
-  attention TINYINT
-);
-*/
-
-/* 
 CREATE TABLE PostConversation (
   ID Varchar(20) Primary Key,
-  AIFeelings TINYINT,
-  postTopic TINYINT,
+  preferComplexProblems TINYINT,
+  likeThinking TINYINT,
+  thinkingIsNotFun TINYINT,
+  preferLittleThought TINYINT,
+  enjoyNewSolutions TINYINT,
+  preferImportantTasks TINYINT,
+  postTopicOpinion TINYINT,
   writingImpact TINYINT
 );
 */
@@ -99,14 +59,7 @@ if ($conn->connect_error) {
 echo "Database connected successfully \n";
 
 // get data
-$demographics = array("Age", "Sex", "Education", "Income", "Social", "Fiscal");
-$postConversation = array("AIFeelings", "postTopic", "writingImpact");
-$personality = [];
-for ($i = 1; $i <= 10; $i++) {
-  $personality[] = "personality" . $i;
-}
-$personality[] = "attention";
-$decision = array("rational1", "rational2", "rational3", "rational4", "rational5", "intuitive1", "intuitive2", "intuitive3", "intuitive4", "intuitive5");
+$postConversation = array("preferComplexProblems", "likeThinking", "thinkingIsNotFun", "preferLittleThought", "enjoyNewSolutions", "preferImportantTasks", "postTopicOpinion", "writingImpact");
 
 $data = json_decode($_POST["data"], true);
 $messages = json_decode($_POST["messages"]);
@@ -118,33 +71,6 @@ $type = !empty($_POST["type"]) ? $_POST["type"] : "null";
 $topic = !empty($_POST["topic"]) ? $_POST["topic"] : "null";
 $politicalPreference = !empty($_POST["politicalPreference"]) ? $_POST["politicalPreference"] : "null";
 
-// if Gender=="other", get the Gender-Comment from data instead
-if ($data["Gender"] === "other" && isset($data["Gender-Comment"])) {
-  $data["Gender"] = $data["Gender-Comment"];
-}
-
-/*********************** Demographics ***********************/
-// construct sql query
-$sql = "INSERT INTO Demographic VALUES ({$id}";
-foreach ($demographics as $column) {
-  $value = $data[$column];
-  if (isset($value) && gettype($value) === "integer") {
-    $sql = "{$sql},{$value}";
-  } elseif (!empty($value) && gettype($value) === "string") {
-    $value = $conn->real_escape_string($value);
-    $sql = "{$sql},'{$value}'";
-  } else {
-    $sql = "{$sql},null";
-  }
-}
-$sql = $sql . ")";
-
-// send sql query
-if ($conn->query($sql) === TRUE) {
-  echo "New demographic record created successfully \n";
-} else {
-  echo "Error: " . $sql . "<br>" . $conn->error;
-}
 
 /*********************** Metadata ***********************/
 $sql = "INSERT INTO Metadata VALUES ({$id},'{$topic}','{$politicalPreference}','{$type}','{$startTime}','{$endTime}','{$completionCode}')";
@@ -179,51 +105,6 @@ if ($conn->query($sql) === TRUE) {
   echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
-/*********************** Personality ***********************/
-// construct sql query
-$sql = "INSERT INTO Personality VALUES ({$id}";
-foreach ($personality as $column) {
-  $value = $data[$column];
-  if (isset($value) && gettype($value) === "integer") {
-    $sql = "{$sql},{$value}";
-  } elseif (!empty($value) && gettype($value) === "string") {
-    $value = $conn->real_escape_string($value);
-    $sql = "{$sql},'{$value}'";
-  } else {
-    $sql = "{$sql},null";
-  }
-}
-$sql = $sql . ")";
-
-// send sql query
-if ($conn->query($sql) === TRUE) {
-  echo "New personality record created successfully \n";
-} else {
-  echo "Error: " . $sql . "<br>" . $conn->error;
-}
-
-/*********************** Decision ***********************/
-// construct sql query
-$sql = "INSERT INTO Decision VALUES ({$id}";
-foreach ($decision as $column) {
-  $value = $data[$column];
-  if (isset($value) && gettype($value) === "integer") {
-    $sql = "{$sql},{$value}";
-  } elseif (!empty($value) && gettype($value) === "string") {
-    $value = $conn->real_escape_string($value);
-    $sql = "{$sql},'{$value}'";
-  } else {
-    $sql = "{$sql},null";
-  }
-}
-$sql = $sql . ")";
-
-// send sql query
-if ($conn->query($sql) === TRUE) {
-  echo "New decision record created successfully \n";
-} else {
-  echo "Error: " . $sql . "<br>" . $conn->error;
-}
 
 /*********************** Messages ***********************/
 // construct sql query
