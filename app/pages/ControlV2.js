@@ -122,7 +122,9 @@ function ControlV2() {
   // }
 
   return (
-    <Survey model={survey} ref={elementRef} />
+    <div ref={elementRef}>
+      <Survey model={survey} />
+    </div>
   );
 }
 
