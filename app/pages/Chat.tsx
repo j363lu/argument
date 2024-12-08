@@ -21,6 +21,7 @@ import NavigationButton from "../components/NavigationButton";
 export default function Chat() {
   const formRef = useRef<HTMLFormElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
+  const elementRef = useRef<HTMLDivElement>(null);
 
   const topic = useAppSelector(selectTopic);
   const type = useAppSelector(selectType);
@@ -50,17 +51,21 @@ export default function Chat() {
   useEffect(() => {
     const disableCopyPaste = (e: ClipboardEvent) => {
       e.preventDefault();
-      alert('Copying and pasting are disabled on this site.');
+      alert('Copying and pasting are disabled.');
     };
 
-    // Disable copy and paste globally
-    document.addEventListener('copy', disableCopyPaste);
-    document.addEventListener('paste', disableCopyPaste);
+    const element = elementRef.current;
+
+    if (element) {
+      element.addEventListener('copy', disableCopyPaste);
+      element.addEventListener('paste', disableCopyPaste);
+    }
 
     return () => {
-      // Cleanup event listeners on unmount
-      document.removeEventListener('copy', disableCopyPaste);
-      document.removeEventListener('paste', disableCopyPaste);
+      if (element) {
+        element.removeEventListener('copy', disableCopyPaste);
+        element.removeEventListener('paste', disableCopyPaste);
+      }
     };
   }, []);
 
@@ -87,7 +92,7 @@ export default function Chat() {
   const disabled = isLoading || input.length === 0;
 
   return (
-    <main className="flex flex-col items-center justify-between pb-40">
+    <main ref={elementRef} className="flex flex-col items-center justify-between pb-40">
       <Panel />
       {messages.length > 1 && (
         messages.map((message, i) => {
