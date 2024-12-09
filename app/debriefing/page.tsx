@@ -10,7 +10,7 @@ function Debriefing() {
       <p>Dear Participant,</p>
 
       <p>
-        Thank you for participating in the first part of our study. We appreciate your contribution and look forward to your continued involvement in the second part of the study a week from now. The second part will take less than a minute of your time and you will receive $0.30 in addition to the $0.90 you have received today.
+        Thank you for participating in the first part of our study. We appreciate your contribution and look forward to your continued involvement in the second part of the study one week in the future. The second part will take three minutes of your time and you will receive $0.60 in addition to the $0.90 you have received today.
       </p>
 
       <p>
@@ -18,14 +18,14 @@ function Debriefing() {
       </p>
 
       <p>
-        For any questions or concerns, contact Jordan Sheen at jsheen@uwaterloo.ca.
+        For any questions or concerns, contact Jordan Sheen at <a href="mailto: jsheen@uwaterloo.ca">jsheen@uwaterloo.ca</a>.
       </p>
 
       <p>Best regards,</p>
 
       <div>Jordan Sheen</div>
       <div>Student investigator</div>
-      <div>jsheen@uwaterloo.ca</div>
+      <div><a href="mailto: jsheen@uwaterloo.ca">jsheen@uwaterloo.ca</a></div>
     </Container>
   );
 }

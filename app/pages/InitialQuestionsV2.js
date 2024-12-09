@@ -72,6 +72,7 @@ function InitialQuestionsV2() {
       ...(topic == "freeTrade" ? freeTrade.pages : kidneyMarkets.pages),
     ],
     showQuestionNumbers: "onpage",
+    showProgressBar: "bottom",
   };
 
   // survey configurations

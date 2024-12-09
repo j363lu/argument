@@ -46,17 +46,17 @@ export const initialQuestionsV2 = {
     }, {
       name: "opinionDemocrats",
       title: "What is your opinion on people who vote for democrats?",
-      description: "1 = unfavorably, 9 = favorably",
-      mininumRateDescription: "unfavorably",
-      maximumRateDescription: "favorably",
-      ...rating9
+      description: "1 = unfavorable, 6 = favorable",
+      mininumRateDescription: "unfavorable",
+      maximumRateDescription: "favorable",
+      ...rating6
     }, {
       name: "opinionRepublicans",
       title: "What is your opinion on people who vote for republicans?",
-      description: "1 = unfavorably, 9 = favorably",
-      mininumRateDescription: "unfavorably",
-      maximumRateDescription: "favorably",
-      ...rating9
+      description: "1 = unfavorable, 6 = favorable",
+      mininumRateDescription: "unfavorable",
+      maximumRateDescription: "favorable",
+      ...rating6
     }, {
       name: "politicalScale",
       title: "Do you identify more with democrat or republican values overall?",
@@ -79,14 +79,16 @@ export const freeTrade = {
       mininumRateDescription: "fully disagree",
       maximumRateDescription: "fully agree",
       ...rating9
-    }, {
+    }],  
+  }, {
+    elements: [{
       name: "topicThought",
       title: "How much have you thought about free trade agreements before?",
       description: "1 = not at all, 9 = a lot",
       mininumRateDescription: "not at all",
       maximumRateDescription: "a lot",
       ...rating9
-    }],  
+    }],      
   }],
 };
 
@@ -101,7 +103,11 @@ export const kidneyMarkets = {
       mininumRateDescription: "fully disagree",
       maximumRateDescription: "fully agree",
       ...rating9
-    }, {
+    }],  
+  }, {
+    // title: "Rating questions",
+    // description: "Please first complete the following questions",
+    elements: [{
       name: "topicThought",
       title: "How much have you thought about the ability to legally buy or sell kidneys before?",
       description: "1 = not at all, 9 = a lot",

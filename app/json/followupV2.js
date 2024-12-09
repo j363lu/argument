@@ -7,7 +7,7 @@ const rating9 = {
   rateMax: 9,
   isRequired: true,
   description: "1 = fully disagree, 9 = fully agree",
-  mininumRateDescription: "1 = fully disagree",
+  mininumRateDescription: "fully disagree",
   maximumRateDescription: "fully agree",
 }
 
