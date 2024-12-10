@@ -4,10 +4,9 @@ import { useAppSelector, useAppDispatch } from "@/lib/hooks";
 import { useEffect, useState } from "react";
 import { selectPart2Page } from "@/lib/pageSlice";
 import { setID } from "@/lib/idSlice";
-import { types, setPart2Type } from "@/lib/typeSlice";
 
-import Consent from "./Consent";
-import Part2 from "./Part2";
+import Consent from "../Consent";
+import Part2 from "../Part2";
 
 function Survey() {
   const page = useAppSelector(selectPart2Page);
@@ -16,7 +15,7 @@ function Survey() {
   // define the pages in the survey
   const [pages] = useState([
     <Consent key="consent" />,
-    <Part2 key="part2" />
+    <Part2 key="part2" topic="freeTrade"/>
   ]);
 
   // set the type
@@ -29,14 +28,6 @@ function Survey() {
     if (id !== null) {
       dispatch(setID(id));
     }
-
-    let t = urlParams.get("type");
-    if (types.includes(t)) {
-      dispatch(setPart2Type(t));
-    } else {
-      dispatch(setPart2Type("emotional"));        
-    }
-
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

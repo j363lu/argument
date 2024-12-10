@@ -2,20 +2,20 @@
 
 import { useAppSelector, useAppDispatch } from "@/lib/hooks";
 import { useEffect, useState } from "react";
-import { selectPart3Page } from "@/lib/pageSlice";
+import { selectPart2Page } from "@/lib/pageSlice";
 import { setID } from "@/lib/idSlice";
 
-import Consent from "./Consent";
-import Part3 from "./Part3";
+import Consent from "../Consent";
+import Part2 from "../Part2";
 
 function Survey() {
-  const page = useAppSelector(selectPart3Page);
+  const page = useAppSelector(selectPart2Page);
   const dispatch = useAppDispatch();
 
   // define the pages in the survey
   const [pages] = useState([
     <Consent key="consent" />,
-    <Part3 key="part3" />
+    <Part2 key="part2" topic="kidneyMarkets"/>
   ]);
 
   // set the type
@@ -28,7 +28,6 @@ function Survey() {
     if (id !== null) {
       dispatch(setID(id));
     }
-
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

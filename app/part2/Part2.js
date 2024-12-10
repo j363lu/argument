@@ -7,17 +7,17 @@ import { DefaultLight } from 'survey-core/themes/default-light';
 
 import { useAppSelector } from '@/lib/hooks';
 import { selectCompletionCode, selectId } from '@/lib/idSlice';
-import { selectPart2Type } from '@/lib/typeSlice';
+import { selectStartTime, torontoTime } from '@/lib/timeSlice';
 
-import part2 from "../json/part2";
+import { freeTrade, kidneyMarkets } from "../json/part2";
 
 // server location
-const part2Server = "https://artsresearch.uwaterloo.ca/~dicelab/argument-backend/php/savePart2.php"; 
+const part2Server = "https://artsresearch.uwaterloo.ca/~dicelab/argument-backend/php/savePart2V2.php"; 
 
-function Part2() {
+function Part2({ topic }) {
   const id = useAppSelector(selectId);
-  const type = useAppSelector(selectPart2Type);
   const completionCode = useAppSelector(selectCompletionCode);
+  const startTime = useAppSelector(selectStartTime);
 
   // post data to a specified url
   const postFormData = (url, formdata) => {
@@ -43,6 +43,9 @@ function Part2() {
     fd.append("data", JSON.stringify(sender.data));   // FormData to send to server
     fd.append("id", id);                              // add ID to the data to send  
     fd.append("completionCode", completionCode);
+    fd.append("topic", topic); 
+    fd.append("startTime", startTime);                // start time of the survey
+    fd.append("endTime", torontoTime(Date.now().toString()));         // end time of the survey  
 
     postFormData(part2Server, fd);
   }  
@@ -51,12 +54,10 @@ function Part2() {
   const surveyJson = {
     // title: "Follow-up Questions",
     pages: [
-      part2.pages[0],
-      (type != "control" ? part2.pages[1] : {}),
+      ...(topic == "freeTrade" ? freeTrade.pages : kidneyMarkets.pages),
     ],
     showQuestionNumbers: "onpage",
-    showProgressBar: "bottom",
-    showPrevButton: false
+    showProgressBar: "bottom"
   };
 
   // The page after the survey is submitted
@@ -75,6 +76,18 @@ function Part2() {
   survey.applyTheme(DefaultLight);
   survey.completedHtml = completedHtml;
   survey.onComplete.add(complete);
+
+  // length between 10 words to 50 words
+  survey.onValidateQuestion.add((survey, options) => {
+    if (options.name === "argumentPart1") {
+      const minWord = 10;
+      const maxWord = 50;
+      const wordCount = options.value.trim().split(/\s+/).length;
+      if (wordCount < minWord || wordCount > maxWord) {
+        options.error = `Please keep your response between 10-50 words. Your response is ${wordCount} words`
+      }
+    }
+  });
 
   // saving survey data to local storage 
   // survey.onValueChanged.add(saveSurveyData);

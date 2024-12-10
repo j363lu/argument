@@ -73,7 +73,7 @@ function Consent() {
 
         <p>
           Your participation in this study is voluntary. 
-          Our current estimate for the length of this study is 6 minutes for the first session and 3 minutes for the second, once coded this will be tested and the payment amount will be adjusted accordingly at the rate of $9USD per hour for the first session and $12USD an hour for the second. You may decline to answer any question that you do not wish to answer by leaving them blank, and you can withdraw your participation at any time by not submitting responses without penalty or loss of credit. To receive credit, please proceed to the end of the questionnaire.
+          Our current estimate for the length of this study is 6 minutes for the first session and 3 minutes for the second, once coded this will be tested and the payment amount will be adjusted accordingly at the rate of $9USD per hour for the first session and $12USD an hour for the second. You can withdraw your participation at any time by not submitting responses without penalty or loss of credit. To receive credit, please proceed to the end of the questionnaire.
         </p>
 
         <strong><p>Personal Benefits of the Study</p></strong>
