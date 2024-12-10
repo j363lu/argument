@@ -75,7 +75,7 @@ $topic = !empty($_POST["topic"]) ? $_POST["topic"] : "null";
 /*********************** Part2 ***********************/
 // construct sql query
 $sql = "INSERT INTO Part2 VALUES ({$id},'{$completionCode}','{$topic}','{$startTime}','{$endTime}'";
-foreach ($postConversation as $column) {
+foreach ($part2 as $column) {
   $value = $data[$column];
   if (isset($value) && gettype($value) === "integer") {
     $sql = "{$sql},{$value}";
