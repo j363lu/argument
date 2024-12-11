@@ -28,106 +28,119 @@ const rating6 = {
   isRequired: true,
 }
 
+const shuffleArray = (array) => {
+  for (let i = array.length - 1; i > 0; i--) {
+      // Generate a random index between 0 and i
+      const j = Math.floor(Math.random() * (i + 1));
+      
+      // Swap elements at indices i and j
+      [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+const memoryQuestions = shuffleArray([{
+  name: "rememberVividly",
+  title: "I remember the event vividly.",      
+  ...rating7
+}, {
+  name: "rememberClearly",
+  title: "I remember the event very clearly.",      
+  ...rating7
+}, {
+  name: "likeYesterday",
+  title: "The things I experienced during the event are so vivid that I feel as though it just happened yesterday.",      
+  ...rating7
+}, {
+  name: "likeIWereThere",
+  title: "I can remember the situation in which the event occurred vividly, as though I were there.",      
+  ...rating7
+}, {
+  name: "makeFilm",
+  title: "If asked, I could make a film about the event that would depict exactly what happened, because I remember it so clearly.",      
+  ...rating7
+}, {
+  name: "occurDifferently",
+  title: "I think that the event may have occurred differently to how I remember it.",      
+  ...rating7
+}, {
+  name: "doubtful",
+  title: "I am seriously doubtful that the event occurred in the way I remember it.",      
+  ...rating7
+}, {
+  name: "occurExactly",
+  title: "The event occurred exactly the way I remember it.",      
+  ...rating7
+}, {
+  name: "notFabricated",
+  title: "As I remember the event, I have not imagined or fabricated anything that did not occur.",      
+  ...rating7
+}, {
+  name: "sure",
+  title: "I am sure that the event occurred in the way I remember it.",      
+  ...rating7
+}, {
+  name: "haveToSearch",
+  title: "I had to search my memory to recall this event.",      
+  ...rating7
+}, {
+  name: "haveToThink",
+  title: "I had to think for a while to recall this event.",      
+  ...rating7
+}, {
+  name: "notRecallOften",
+  title: "I do not recall this event very often.",      
+  ...rating7
+}, {
+  name: "comeBackDisjointedPieces",
+  title: "This memory comes back to me in disjointed pieces.",      
+  ...rating7
+}, {
+  name: "comeBackDisjointedFlashbacks",
+  title: "This memory comes back to me in disjointed flashbacks.",      
+  ...rating7
+}, {
+  name: "thereAreGaps",
+  title: "As I remember the event, there are gaps and some things I cannot remember in the storyline.",      
+  ...rating7
+}, {
+  name: "incoherentOrder",
+  title: "The order of events in the memory is incoherent and confusing.",      
+  ...rating7
+}, {
+  name: "chronologicalOrder",
+  title: "I remember the event in chronological order (before, during and after).",      
+  ...rating7
+}, {
+  name: "feelingsWeak",
+  title: "While remembering the event now, my feelings are quite weak.",      
+  ...rating7
+}, {
+  name: "feelingsIntense",
+  title: "While remembering the event now, my feelings are quite intense.",      
+  ...rating7
+}, {
+  name: "evokesWeakEmotions",
+  title: "My memory of this event evokes very weak emotions in me.",      
+  ...rating7
+}, {
+  name: "feelIntenseEmotions",
+  title: "When I focus the event, I feel very intense emotions.",      
+  ...rating7
+}, {
+  name: "evokesStrongEmotions",
+  title: "My memory of this event evokes very strong emotions in me.",      
+  ...rating7
+}])
+
 const memory = [
   {
     title: "You have engaged with AI",
-    elements: [{
-      name: "rememberVividly",
-      title: "I remember the event vividly.",      
-      ...rating7
-    }, {
-      name: "rememberClearly",
-      title: "I remember the event very clearly.",      
-      ...rating7
-    }, {
-      name: "likeYesterday",
-      title: "The things I experienced during the event are so vivid that I feel as though it just happened yesterday.",      
-      ...rating7
-    }, {
-      name: "likeIWereThere",
-      title: "I can remember the situation in which the event occurred vividly, as though I were there.",      
-      ...rating7
-    }, {
-      name: "makeFilm",
-      title: "If asked, I could make a film about the event that would depict exactly what happened, because I remember it so clearly.",      
-      ...rating7
-    }, {
-      name: "occurDifferently",
-      title: "I think that the event may have occurred differently to how I remember it.",      
-      ...rating7
-    }, {
-      name: "doubtful",
-      title: "I am seriously doubtful that the event occurred in the way I remember it.",      
-      ...rating7
-    }, {
-      name: "occurExactly",
-      title: "The event occurred exactly the way I remember it.",      
-      ...rating7
-    }, {
-      name: "notFabricated",
-      title: "As I remember the event, I have not imagined or fabricated anything that did not occur.",      
-      ...rating7
-    }, {
-      name: "sure",
-      title: "I am sure that the event occurred in the way I remember it.",      
-      ...rating7
-    }, {
-      name: "haveToSearch",
-      title: "I had to search my memory to recall this event.",      
-      ...rating7
-    }, {
-      name: "haveToThink",
-      title: "I had to think for a while to recall this event.",      
-      ...rating7
-    }],
+    elements: memoryQuestions.slice(0, 12),
     questionsOrder: "random",     
   }, {
     // title: "You have engaged with AI",
-    elements: [{
-      name: "notRecallOften",
-      title: "I do not recall this event very often.",      
-      ...rating7
-    }, {
-      name: "comeBackDisjointedPieces",
-      title: "This memory comes back to me in disjointed pieces.",      
-      ...rating7
-    }, {
-      name: "comeBackDisjointedFlashbacks",
-      title: "This memory comes back to me in disjointed flashbacks.",      
-      ...rating7
-    }, {
-      name: "thereAreGaps",
-      title: "As I remember the event, there are gaps and some things I cannot remember in the storyline.",      
-      ...rating7
-    }, {
-      name: "incoherentOrder",
-      title: "The order of events in the memory is incoherent and confusing.",      
-      ...rating7
-    }, {
-      name: "chronologicalOrder",
-      title: "I remember the event in chronological order (before, during and after).",      
-      ...rating7
-    }, {
-      name: "feelingsWeak",
-      title: "While remembering the event now, my feelings are quite weak.",      
-      ...rating7
-    }, {
-      name: "feelingsIntense",
-      title: "While remembering the event now, my feelings are quite intense.",      
-      ...rating7
-    }, {
-      name: "evokesWeakEmotions",
-      title: "My memory of this event evokes very weak emotions in me.",      
-      ...rating7
-    }, {
-      name: "feelIntenseEmotions",
-      title: "When I focus the event, I feel very intense emotions.",      
-      ...rating7
-    }, {
-      name: "evokesStrongEmotions",
-      title: "My memory of this event evokes very strong emotions in me.",      
-      ...rating7
-    }],
+    elements: memoryQuestions.slice(12, 23),
     questionsOrder: "random",    
   }
 ]
