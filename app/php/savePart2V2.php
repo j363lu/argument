@@ -8,7 +8,7 @@ CREATE TABLE Part2 (
   StartTimeTorontoPart2 Timestamp,
   EndTimeTorontoPart2 Timestamp DEFAULT CURRENT_TIMESTAMP,
 
-  mturkIDPart2 Varchar(20),
+  mturkID Varchar(20),
   topicOpinionPart2 TINYINT,
   rememberVividly TINYINT,
   rememberClearly TINYINT,
@@ -62,7 +62,7 @@ if ($conn->connect_error) {
 echo "Database connected successfully \n";
 
 // get data
-$part2 = array("mturkIDPart2", "topicOpinionPart2", "rememberVividly", "rememberClearly", "likeYesterday", "likeIWereThere", "makeFilm", "occurDifferently", "doubtful", "occurExactly", "notFabricated", "sure", "haveToSearch", "haveToThink", "notRecallOften", "comeBackDisjointedPieces", "comeBackDisjointedFlashbacks", "thereAreGaps", "incoherentOrder", "chronologicalOrder", "feelingsWeak", "feelingsIntense", "evokesWeakEmotions", "feelIntenseEmotions", "evokesStrongEmotions", "topicOpinionPart1Before", "topicOpinionPart1After", "argumentPart1", "economicPart2", "socialPart2", "politicalScalePart2", "viewOnAI");
+$part2 = array("mturkID", "topicOpinionPart2", "rememberVividly", "rememberClearly", "likeYesterday", "likeIWereThere", "makeFilm", "occurDifferently", "doubtful", "occurExactly", "notFabricated", "sure", "haveToSearch", "haveToThink", "notRecallOften", "comeBackDisjointedPieces", "comeBackDisjointedFlashbacks", "thereAreGaps", "incoherentOrder", "chronologicalOrder", "feelingsWeak", "feelingsIntense", "evokesWeakEmotions", "feelIntenseEmotions", "evokesStrongEmotions", "topicOpinionPart1Before", "topicOpinionPart1After", "argumentPart1", "economicPart2", "socialPart2", "politicalScalePart2", "viewOnAI");
 
 $data = json_decode($_POST["data"], true);
 $id = !empty($_POST["id"]) ? $_POST["id"] : "null";
