@@ -3,10 +3,10 @@ const rating9 = {
   rateCount: 9,
   rateMin: 1,
   rateMax: 9,
-  description: "1 = fully disagree, 9 = fully agree",
+  description: "1 = Fully disagree, 9 = Fully agree",
   isRequired: true,
-  mininumRateDescription: "fully disagree",
-  maximumRateDescription: "fully agree",
+  mininumRateDescription: "Fully disagree",
+  maximumRateDescription: "Fully agree",
 }
 
 const rating7 = {
@@ -14,10 +14,10 @@ const rating7 = {
   rateCount: 7,
   rateMin: 1,
   rateMax: 7,
-  description: "1 = completely disagree, 7 = completely agree",
+  description: "1 = Completely disagree, 7 = Completely agree",
   isRequired: true,
-  mininumRateDescription: "completely disagree",
-  maximumRateDescription: "completely agree",
+  mininumRateDescription: "Completely disagree",
+  maximumRateDescription: "Completely agree",
 }
 
 const rating6 = {
@@ -135,7 +135,7 @@ const memoryQuestions = shuffleArray([{
 
 const memory = [
   {
-    title: "You have engaged with AI",
+    // title: "You have engaged with AI",
     elements: memoryQuestions.slice(0, 12),
     questionsOrder: "random",     
   }, {
@@ -149,32 +149,32 @@ const part2 = [{
   elements: [{
     name: "economicPart2",
     title: "How liberal or conservative do you consider yourself to be when it comes to economic issues (e.g., taxes, regulations, and government spending)?",      
-    description: "1 = strongly liberal, 2 = mostly liberal, 3 = leans liberal, 4 = leans conservative, 5 = mostly conservative, 6 = strongly conservative",
-    mininumRateDescription: "strongly liberal",
-    maximumRateDescription: "strongly conservative",
+    description: "1 = Strongly liberal, 2 = Mostly liberal, 3 = Leans liberal, 4 = Leans conservative, 5 = Mostly conservative, 6 = Strongly conservative",
+    mininumRateDescription: "Strongly liberal",
+    maximumRateDescription: "Strongly conservative",
     ...rating6
   }, {
     name: "socialPart2",
     title: "How liberal or conservative do you consider yourself to be when it comes to social issues (e.g., abortion, LGBT issues, and freedom of speech)?",      
-    description: "1 = strongly liberal, 2 = mostly liberal, 3 = leans liberal, 4 = leans conservative, 5 = mostly conservative, 6 = strongly conservative",
-    mininumRateDescription: "strongly liberal",
-    maximumRateDescription: "strongly conservative",
+    description: "1 = Strongly liberal, 2 = Mostly liberal, 3 = Leans liberal, 4 = Leans conservative, 5 = Mostly conservative, 6 = Strongly conservative",
+    mininumRateDescription: "Strongly liberal",
+    maximumRateDescription: "Strongly conservative",
     ...rating6
   }, {
     name: "politicalScalePart2",
-    title: "Do you identify more with democrat or republican values overall?",      
-    description: "1 = strongly democrat, 2 = mostly democrat, 3 = leans democrat, 4 = leans republican, 5 = mostly republican, 6 = strongly republican",
-    mininumRateDescription: "strongly democrat",
-    maximumRateDescription: "strongly republican",
+    title: "Do you identify more with democrats or republican values overall?",      
+    description: "1 = Strongly democratic, 2 = Mostly democratic, 3 = Leans democratic, 4 = Leans republican, 5 = Mostly republican, 6 = Strongly republican",
+    mininumRateDescription: "Strongly democratic",
+    maximumRateDescription: "Strongly republican",
     ...rating6
   }]
 }, {
   elements: [{
     name: "viewOnAI",
     title: "Generally speaking, what are your views on AI?",      
-    description: "1 = very negative, 2 = fairly negative, 3 = neither positive nor negative, 4 = fairly positive, 5 = very positive",
-    mininumRateDescription: "very negative",
-    maximumRateDescription: "very positive",
+    description: "1 = Very negative, 2 = Fairly negative, 3 = Neither positive nor negative, 4 = Fairly positive, 5 = Very positive",
+    mininumRateDescription: "Very negative",
+    maximumRateDescription: "Very positive",
     type: "rating",
     rateCount: 5,
     rateMin: 1,
@@ -201,26 +201,26 @@ export const freeTrade = {
     }]
   }, {
     ...memory[0],
-    description: "You completed the first part of this study a week ago where you had written about free trade agreements. Please answer the following questions trying to remember when you had to write about free trade agreements.",
+    title: "<b>You completed the first part of this study a week ago where you had written about free trade agreements. Please answer the following questions trying to remember when you had to write about free trade agreements</b>.",
   }, {
     ...memory[1],
-    description: "You completed the first part of this study a week ago where you had written about free trade agreements. Please answer the following questions trying to remember when you had to write about free trade agreements.",
+    title: "<b>You completed the first part of this study a week ago where you had written about free trade agreements. Please answer the following questions trying to remember when you had to write about free trade agreements</b>.",
   }, {
     elements: [{
       name: "topicOpinionPart1Before",
-      title: "How favorable were you towards the idea that the United States should adopt free trade agreements with other countries before you wrote about it a week ago?",      
+      title: "How favorable were you <b>last week</b> towards the idea that the United States should adopt free trade agreements with other countries <b>before</b> you wrote about it?",      
       ...rating9
     }]
   }, {
     elements: [{
       name: "topicOpinionPart1After",
-      title: "How favorable were you towards the idea that the United States should adopt free trade agreements with other countries directly after you wrote about it a week ago?",      
+      title: "How favorable were you <b>last week</b> towards the idea that the United States should adopt free trade agreements with other countries <b>directly after</b> you wrote about it?",      
       ...rating9
     }]
   }, {
     elements: [{
       name: "argumentPart1",
-      title: "Please write a specific argument that was made to you last week concerning free trade.",      
+      title: "Please write a <b>specific</b> argument that was made to you last week concerning <b>free trade</b>.",      
       description: "Please limit your response to 10-50 words.",
       type: "comment",
       isRequired: true,
@@ -246,26 +246,27 @@ export const kidneyMarkets = {
     }]
   }, {
     ...memory[0],
-    description: "You completed the first part of this study a week ago where you had written about the ability to legally buy or sell kidneys. Please answer the following questions trying to remember when you had to write about the ability to legally buy or sell kidneys.",
+    title: "<b>You completed the first part of this study a week ago where you had written about the ability to legally buy or sell kidneys. Please answer the following questions trying to remember when you had to write about the ability to legally buy or sell kidneys</b>.",
   }, {
     ...memory[1],
-    description: "You completed the first part of this study a week ago where you had written about the ability to legally buy or sell kidneys. Please answer the following questions trying to remember when you had to write about the ability to legally buy or sell kidneys.",
+    title: "<b>You completed the first part of this study a week ago where you had written about the ability to legally buy or sell kidneys. Please answer the following questions trying to remember when you had to write about the ability to legally buy or sell kidneys</b>.",
   }, {
     elements: [{
       name: "topicOpinionPart1Before",
-      title: "How favorable were you towards the idea the United States should make it legal for people to buy and sell their kidneys if they wish before you wrote about it a week ago?",      
-      ...rating9
+      title: "How favorable were you <b>last week</b> towards the idea that the United States should make it legal for people to buy and sell their kidneys if they wish <b>before</b> you wrote about it?",      
+      ...rating9,
+
     }]
   }, {
     elements: [{
       name: "topicOpinionPart1After",
-      title: "How favorable were you towards the idea the United States should make it legal for people to buy and sell their kidneys if they wish directly after you wrote about it a week ago?",      
+      title: "How favorable were you <b>last week</b> towards the idea that the United States should make it legal for people to buy and sell their kidneys if they wish <b>directly after</b> you wrote about it?",      
       ...rating9
     }]
   }, {
     elements: [{
       name: "argumentPart1",
-      title: "Please write a specific argument that was made to you last week concerning kidney markets.",      
+      title: "Please write a <b>specific</b> argument that was made to you last week concerning <b>kidney markets</b>.",      
       description: "Please limit your response to 10-50 words.",
       type: "comment",
       isRequired: true,

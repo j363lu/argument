@@ -5,7 +5,7 @@ import { Survey } from 'survey-react-ui';
 import 'survey-core/defaultV2.min.css';
 import { DefaultLight } from 'survey-core/themes/default-light';
 
-import { followupV2, postFreeTrade, postKidneyMarkets } from '../json/followupV2';
+import { followupV2, postFreeTrade, postKidneyMarkets, sex } from '../json/followupV2';
 
 import { useAppSelector } from '@/lib/hooks';
 import { selectCompletionCode, selectId } from '@/lib/idSlice';
@@ -96,6 +96,7 @@ function FollowupV2() {
           maximumRateDescription: "much more republican",
         }]
       },
+      ...sex.pages
     ],
     showQuestionNumbers: "onpage",
     showProgressBar: "bottom",

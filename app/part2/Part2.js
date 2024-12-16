@@ -11,6 +11,33 @@ import { selectStartTime, torontoTime } from '@/lib/timeSlice';
 
 import { freeTrade, kidneyMarkets } from "../json/part2";
 
+import { marked } from "marked";
+
+const renderer = {
+  image: function (src, _, alt) {
+    src = src.href || src;
+    const sizeStr = ',size=';
+    let i = src.indexOf(sizeStr);
+    let height = '';
+    let width = '';
+    if (i > -1) {
+      let str = src.substring(i + sizeStr.length);
+      src = src.substring(0, i);
+      i = str.indexOf('x');
+      if (i > -1) {
+        height = str.substring(0, i) + 'px';
+        width = str.substring(i + 1) + 'px';
+      }
+    }
+    let res = '<img src="' + src + '" alt="' + alt;
+    if (height) res += '" height="' + height;
+    if (width) res += '" width="' + width;
+    return res + '">';
+  }
+};
+
+marked.use({ renderer });
+
 // server location
 const part2Server = "https://artsresearch.uwaterloo.ca/~dicelab/argument-backend/php/savePart2V2.php"; 
 
@@ -57,7 +84,8 @@ function Part2({ topic }) {
       ...(topic == "freeTrade" ? freeTrade.pages : kidneyMarkets.pages),
     ],
     showQuestionNumbers: "onpage",
-    showProgressBar: "bottom"
+    showProgressBar: "bottom",
+    showPrevButton: false
   };
 
   // The page after the survey is submitted
@@ -88,6 +116,40 @@ function Part2({ topic }) {
       }
     }
   });
+
+  survey.onAfterRenderQuestion.add((sender, options) => {
+    const questionElement = options.htmlElement;
+
+    // Find input or textarea elements inside the question
+    const inputElements = questionElement.querySelectorAll("textarea");
+
+    inputElements.forEach((input) => {
+      // Add event listener to block copy
+      input.addEventListener("copy", (e) => {
+        e.preventDefault();
+        alert("Copying is disabled for this question.");
+      });
+
+      // Add event listener to block paste
+      input.addEventListener("paste", (e) => {
+        e.preventDefault();
+        alert("Pasting is disabled for this question.");
+      });
+    });
+  });
+
+  survey.onTextMarkdown.add((_, options) => {
+    // Convert Markdown to HTML
+    let str = marked(options.text);
+    // ...
+    // Sanitize the HTML markup using a third-party library here
+    // ...
+    // Remove root paragraphs <p></p>
+    str = str.substring(3);
+    str = str.substring(0, str.length - 5);
+    // Set HTML markup to render
+    options.html = str;
+  });  
 
   // saving survey data to local storage 
   // survey.onValueChanged.add(saveSurveyData);

@@ -21,7 +21,8 @@ CREATE TABLE PostConversation (
   enjoyNewSolutions TINYINT,
   preferImportantTasks TINYINT,
   postTopicOpinion TINYINT,
-  writingImpact TINYINT
+  writingImpact TINYINT,
+  sex Varchar(100)
 );
 */
 
@@ -59,7 +60,7 @@ if ($conn->connect_error) {
 echo "Database connected successfully \n";
 
 // get data
-$postConversation = array("preferComplexProblems", "likeThinking", "thinkingIsNotFun", "preferLittleThought", "enjoyNewSolutions", "preferImportantTasks", "postTopicOpinion", "writingImpact");
+$postConversation = array("preferComplexProblems", "likeThinking", "thinkingIsNotFun", "preferLittleThought", "enjoyNewSolutions", "preferImportantTasks", "postTopicOpinion", "writingImpact", "sex");
 
 $data = json_decode($_POST["data"], true);
 $messages = json_decode($_POST["messages"]);
@@ -71,6 +72,10 @@ $type = !empty($_POST["type"]) ? $_POST["type"] : "null";
 $topic = !empty($_POST["topic"]) ? $_POST["topic"] : "null";
 $politicalPreference = !empty($_POST["politicalPreference"]) ? $_POST["politicalPreference"] : "null";
 
+// if sex=="other", get the sex-Comment from data instead
+if ($data["sex"] === "other" && isset($data["sex-Comment"])) {
+  $data["sex"] = $data["sex-Comment"];
+}
 
 /*********************** Metadata ***********************/
 $sql = "INSERT INTO Metadata VALUES ({$id},'{$topic}','{$politicalPreference}','{$type}','{$startTime}','{$endTime}','{$completionCode}')";

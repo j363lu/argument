@@ -41,3 +41,7 @@ label.sd-rating__item {
   color: #000000 !important;
   font-weight: 700 !important;
 }
+
+.sv-string-viewer {
+  font-weight: normal;
+}

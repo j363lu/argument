@@ -6,9 +6,9 @@ const rating9 = {
   rateMin: 1,
   rateMax: 9,
   isRequired: true,
-  description: "1 = fully disagree, 9 = fully agree",
-  mininumRateDescription: "fully disagree",
-  maximumRateDescription: "fully agree",
+  description: "1 = Fully disagree, 9 = Fully agree",
+  mininumRateDescription: "Fully disagree",
+  maximumRateDescription: "Fully agree",
 }
 
 const rating5 = {
@@ -17,9 +17,9 @@ const rating5 = {
   rateMin: 1,
   rateMax: 5,
   isRequired: true,
-  description: "1 = extremely uncharacteristic, 5 = extremely characteristic ",
-  mininumRateDescription: "extremely uncharacteristic",
-  maximumRateDescription: "extremely characteristic",
+  description: "1 = Extremely uncharacteristic, 5 = Extremely characteristic ",
+  mininumRateDescription: "Extremely uncharacteristic",
+  maximumRateDescription: "Extremely characteristic",
 }
 
 
@@ -88,9 +88,23 @@ export const writingImpact= {
       rateMin: 1,
       rateMax: 5,
       isRequired: true,
-      description: "1 = much more left wing, 3 = have no change, 5 = much more right wing",
-      mininumRateDescription: "much more left wing",
-      maximumRateDescription: "much more right wing",
+      description: "1 = Much more left wing, 3 = Have no change, 5 = Much more right wing",
+      mininumRateDescription: "Much more left wing",
+      maximumRateDescription: "Much more right wing",
     }]
   }],
+}
+
+export const sex = {
+  pages: [{
+    elements: [{
+      name: "sex",
+      title: "What is your sex?",
+      type: "radiogroup",
+      choices: [
+        "Male", "Female"
+      ],
+      showOtherItem: true   
+    }]
+  }]
 }
