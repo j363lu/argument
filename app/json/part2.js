@@ -186,7 +186,7 @@ const part2 = [{
 export const freeTrade = {
   pages: [{
     elements: [{
-      name: "mturkIDPart2",
+      name: "mturkID",
       title: "Please enter your MTurk ID",
       type: "text",
       isRequired: true,
