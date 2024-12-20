@@ -13,6 +13,34 @@ import { selectTopic, selectPoliticalPreference, selectType } from '@/lib/typeSl
 import { selectStartTime, torontoTime } from '@/lib/timeSlice';
 import { selectMessages } from '@/lib/messagesSlice';
 
+import { marked } from "marked";
+
+const renderer = {
+  image: function (src, _, alt) {
+    src = src.href || src;
+    const sizeStr = ',size=';
+    let i = src.indexOf(sizeStr);
+    let height = '';
+    let width = '';
+    if (i > -1) {
+      let str = src.substring(i + sizeStr.length);
+      src = src.substring(0, i);
+      i = str.indexOf('x');
+      if (i > -1) {
+        height = str.substring(0, i) + 'px';
+        width = str.substring(i + 1) + 'px';
+      }
+    }
+    let res = '<img src="' + src + '" alt="' + alt;
+    if (height) res += '" height="' + height;
+    if (width) res += '" width="' + width;
+    return res + '">';
+  }
+};
+
+marked.use({ renderer });
+
+
 // server location
 const followupServer = "https://artsresearch.uwaterloo.ca/~dicelab/argument-backend/php/saveFollowupV2.php"; 
 const controlServer = "https://artsresearch.uwaterloo.ca/~dicelab/argument-backend/php/saveControlV2.php"; 
@@ -133,6 +161,20 @@ function FollowupV2() {
   //     survey.currentPageNo = data.pageNo;
   //   }
   // }
+
+  survey.onTextMarkdown.add((_, options) => {
+    // Convert Markdown to HTML
+    let str = marked(options.text);
+    // ...
+    // Sanitize the HTML markup using a third-party library here
+    // ...
+    // Remove root paragraphs <p></p>
+    str = str.substring(3);
+    str = str.substring(0, str.length - 5);
+    // Set HTML markup to render
+    options.html = str;
+  });  
+
 
   return (
     <Survey model={survey} />
