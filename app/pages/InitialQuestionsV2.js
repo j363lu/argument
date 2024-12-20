@@ -73,6 +73,7 @@ function InitialQuestionsV2() {
     ],
     showQuestionNumbers: "onpage",
     showProgressBar: "bottom",
+    showPrevButton: false
   };
 
   // survey configurations

@@ -26,8 +26,8 @@ const rating5 = {
 
 // The structure of the questions
 export const followupV2 = {
-  description: "For each sentence below, please select how uncharacteristic or characteristic (5-point scale) this is for you personally.",
   pages: [{
+    description: "Please answer how characteristic the following statements apply to you.",
     elements: [{
       name: "preferComplexProblems",
       title: "I would prefer complex to simple problems.",      

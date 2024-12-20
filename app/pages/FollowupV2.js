@@ -100,7 +100,7 @@ function FollowupV2() {
     ],
     showQuestionNumbers: "onpage",
     showProgressBar: "bottom",
-    // showPrevButton: false
+    showPrevButton: false
   };
 
   // The page after the survey is submitted
