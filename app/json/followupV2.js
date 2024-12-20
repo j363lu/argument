@@ -27,7 +27,7 @@ const rating5 = {
 // The structure of the questions
 export const followupV2 = {
   pages: [{
-    description: "Please answer how characteristic the following statements apply to you.",
+    title: "<b>Please answer how characteristic the following statements apply to you.</b>",
     elements: [{
       name: "preferComplexProblems",
       title: "I would prefer complex to simple problems.",      
