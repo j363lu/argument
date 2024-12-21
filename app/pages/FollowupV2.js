@@ -119,9 +119,9 @@ function FollowupV2() {
           rateMin: 1,
           rateMax: 5,
           isRequired: true,
-          description: "1 = much more democratic, 3 = no change, 5 = much more republican",
-          mininumRateDescription: "much more democratic",
-          maximumRateDescription: "much more republican",
+          description: "1 = Much more democratic, 3 = No change, 5 = Much more republican",
+          mininumRateDescription: "Much more democratic",
+          maximumRateDescription: "Much more republican",
         }]
       },
       ...sex.pages
